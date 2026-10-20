@@ -3,126 +3,226 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#090914">
-<title>YOUSSEF FITNESS</title>
+<title>YOUSSEF | Fitness</title>
 <style>
+:root{
+ --bg:#090914;--panel:#141326;--panel2:#1d1933;
+ --purple:#8050ff;--light:#bba2ff;--text:#f7f5ff;
+ --muted:#a7a1bd;--border:#302943;--green:#8ce0b5
+}
 *{box-sizing:border-box}
-body{margin:0;background:#090914;color:#f5f3ff;font-family:Arial,sans-serif;padding:20px}
-header{text-align:center;padding:20px 0}
-h1{font-size:32px;letter-spacing:2px;color:#a78bfa;margin:5px}
-p{color:#aaa4c2;line-height:1.8}
-.card{background:#171529;border:1px solid #30264c;border-radius:20px;padding:18px;margin:14px 0}
-h2{font-size:19px}
-button{border:0;border-radius:13px;padding:13px;background:#8050ff;color:white;font-size:16px;font-weight:bold;cursor:pointer;width:100%;margin:6px 0}
-button.secondary{background:#29213f}
-.stat{display:flex;justify-content:space-between;gap:10px;text-align:center}
-.stat div{flex:1;background:#211b37;padding:12px;border-radius:13px}
-.num{font-size:24px;color:#b69aff;font-weight:bold}
-.exercise{display:flex;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid #302943}
-.exercise input{width:21px;height:21px;accent-color:#a78bfa}
-small{color:#aaa4c2}
+body{
+ margin:0;background:var(--bg);color:var(--text);
+ font-family:"Noto Sans Arabic","Noto Kufi Arabic",Tahoma,Arial,sans-serif;
+ line-height:1.8
+}
+button,input{font:inherit}
+button{cursor:pointer}
+.app{max-width:620px;margin:auto;padding:22px 17px 45px}
+.top{display:flex;align-items:center;justify-content:space-between;margin:5px 0 25px}
+.brand{display:flex;align-items:center;gap:11px}
+.logo{
+ width:49px;height:49px;border-radius:16px;
+ background:linear-gradient(140deg,#9b75ff,#6436dc);
+ display:grid;place-items:center;font-size:24px;font-weight:900;
+ box-shadow:0 7px 25px #8050ff35
+}
+.brand h1{font-size:20px;letter-spacing:1.5px;margin:0}
+.brand p{margin:0;color:var(--muted);font-size:12px}
+.level-pill{border:1px solid var(--border);padding:6px 11px;
+ border-radius:30px;color:var(--light);font-size:12px}
+.hero{
+ padding:24px 21px;border-radius:25px;overflow:hidden;
+ background:radial-gradient(ellipse at top left,#50309a55,transparent 65%),var(--panel);
+ border:1px solid var(--border);margin-bottom:17px
+}
+.eyebrow{font-size:12px;color:var(--light);font-weight:bold}
+.hero h2{font-size:25px;line-height:1.6;margin:7px 0}
+.hero p{font-size:13px;color:var(--muted);margin:0 0 20px}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.stat{background:#ffffff07;border:1px solid #ffffff0a;
+ padding:13px;border-radius:17px}
+.stat strong{display:block;font-size:25px;color:var(--light);direction:ltr;text-align:right}
+.stat span{font-size:11px;color:var(--muted)}
+.section-head{display:flex;align-items:center;justify-content:space-between;margin:25px 2px 12px}
+.section-head h2{font-size:17px;margin:0}
+.section-head span{font-size:11px;color:var(--muted)}
+.card{background:var(--panel);border:1px solid var(--border);
+ border-radius:22px;padding:18px;margin-bottom:14px}
+.progress-track{height:6px;border-radius:20px;background:#302943;overflow:hidden;margin:12px 0}
+.progress-fill{height:100%;width:0;background:linear-gradient(90deg,#8050ff,#c2aaff);transition:width .2s}
+.exercise{display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid #ffffff0b}
+.exercise:last-child{border-bottom:0}
+.exercise input{width:20px;height:20px;accent-color:var(--purple);flex-shrink:0}
+.exercise .name{font-size:13px;font-weight:bold}
+.exercise small{display:block;font-size:11px;color:var(--muted);font-weight:normal}
+.exercise input:checked+.label .name{color:var(--light)}
+.actions{display:grid;gap:9px;margin-top:17px}
+.btn{width:100%;padding:13px 16px;border:1px solid transparent;
+ border-radius:14px;font-weight:bold;font-size:14px;transition:.15s}
+.btn:active{transform:scale(.98)}
+.primary{background:linear-gradient(120deg,#9169ff,#7040ed);color:white;box-shadow:0 5px 18px #8050ff24}
+.secondary{background:#ffffff06;color:var(--text);border-color:var(--border)}
+.levels{display:grid;gap:9px}
+.level-btn{display:flex;justify-content:space-between;align-items:center;
+ text-align:right;background:#ffffff04;color:var(--text);
+ border:1px solid var(--border);padding:14px;border-radius:15px}
+.level-btn.active{border-color:var(--purple);background:#8050ff13}
+.level-btn strong{font-size:13px;display:block}
+.level-btn small{color:var(--muted);font-size:11px}
+.level-btn .number{color:var(--light);font-weight:bold;direction:ltr}
+.note{font-size:12px;color:var(--muted);margin:12px 0 0}
+.footer{text-align:center;color:#77718d;font-size:11px;padding:18px}
+.toast{display:none;background:#17372d;color:var(--green);padding:12px;
+ border-radius:12px;font-size:13px;margin-bottom:12px}
+@media(min-width:500px){.app{padding-top:30px}.hero{padding:29px}}
 </style>
 </head>
 <body>
-<header>
-<h1>YOUSSEF</h1>
-<p>رحلتك للقوة تبدأ بخطوة 💜</p>
+<main class="app">
+<header class="top">
+ <div class="brand">
+  <div class="logo">Y</div>
+  <div><h1>YOUSSEF</h1><p>FITNESS · YOUR JOURNEY</p></div>
+ </div>
+ <div class="level-pill" id="pill">LEVEL 01</div>
 </header>
 
-<div class="card">
-<h2>أهلاً يا يوسف 👋</h2>
-<p>مش مطلوب منك تكون قوي من أول يوم. المهم تستمر وتتقدم براحتك.</p>
-<div class="stat">
-<div><div class="num" id="days">0</div><small>أيام تدريب</small></div>
-<div><div class="num" id="done">0/5</div><small>تمارين اليوم</small></div>
-</div>
-</div>
+<section class="hero">
+ <div class="eyebrow">خطوة بخطوة، أقوى كل يوم</div>
+ <h2>ابدأ من مكانك.<br>وابنِ قوتك بنفسك.</h2>
+ <p>تمرينك مش سباق. التزم باللي تقدر عليه وخلّي التقدم ييجي بالتدريج.</p>
+ <div class="stats">
+  <div class="stat"><strong id="days">0</strong><span>أيام تدريب مكتملة</span></div>
+  <div class="stat"><strong id="count">0/5</strong><span>تمارين اليوم</span></div>
+ </div>
+</section>
 
-<div class="card">
-<h2 id="levelTitle">المستوى الأول 🟣</h2>
-<p id="levelDesc">بداية هادئة لبناء العادة والقوة.</p>
-<div id="workout"></div>
-<button onclick="saveDay()">حفظ تمرين اليوم ✓</button>
-<button class="secondary" onclick="resetToday()">إعادة تمارين اليوم</button>
-</div>
+<div id="toast" class="toast"></div>
 
-<div class="card">
-<h2>مستوياتك</h2>
-<button onclick="setLevel(0)">1 — مبتدئ</button>
-<button class="secondary" onclick="setLevel(1)">2 — بناء القوة</button>
-<button class="secondary" onclick="setLevel(2)">3 — تحدي نفسك</button>
-<p>انتقل للمستوى التالي عندما يصبح الحالي مريحاً لعدة حصص.</p>
+<div class="section-head">
+ <h2>تمرين اليوم</h2><span id="levelLabel">المستوى الأول</span>
 </div>
+<section class="card">
+ <div style="display:flex;justify-content:space-between;align-items:center">
+  <strong style="font-size:14px">إنجازك اليوم</strong>
+  <span id="percent" style="font-size:12px;color:var(--light)">0%</span>
+ </div>
+ <div class="progress-track"><div class="progress-fill" id="fill"></div></div>
+ <div id="workout"></div>
+ <div class="actions">
+  <button class="btn primary" onclick="saveDay()">حفظ إنجاز اليوم</button>
+  <button class="btn secondary" onclick="resetToday()">إعادة تعيين التمارين</button>
+ </div>
+</section>
 
-<div class="card">
-<h2>نصائح مهمة ❤️</h2>
-<p>• ابدأ بإحماء خفيف 3–5 دقائق.</p>
-<p>• استرح بين الجولات، ولا تتمرن حتى الإنهاك.</p>
-<p>• الاستطالة تكون بلطف دون إجبار المفاصل.</p>
-<p>• توقف إذا شعرت بألم أو دوخة أو ضيق نفس غير معتاد.</p>
+<div class="section-head">
+ <h2>مستويات التدريب</h2><span>3 مستويات</span>
 </div>
+<section class="card">
+ <div class="levels" id="levels"></div>
+ <p class="note">اختار المستوى المناسب لقدرتك. انتقل للأعلى لما التمارين الحالية تبقى مريحة لعدة حصص.</p>
+</section>
+
+<div class="section-head"><h2>قواعدك الأساسية</h2></div>
+<section class="card">
+ <div class="exercise"><span class="label"><span class="name">01 — الإحماء</span><small>3–5 دقائق قبل التمرين</small></span></div>
+ <div class="exercise"><span class="label"><span class="name">02 — الحركة الصحيحة</span><small>نفّذ ببطء ومن غير إجبار جسمك</small></span></div>
+ <div class="exercise"><span class="label"><span class="name">03 — التعافي</span><small>راحة ونوم ومياه كفاية</small></span></div>
+ <p class="note">توقف عند الألم أو الدوخة أو ضيق النفس غير المعتاد. مش لازم تتمرن كل يوم.</p>
+</section>
+<footer class="footer">YOUSSEF FITNESS · BUILD YOUR HABITS</footer>
+</main>
 
 <script>
 const plans=[
-[
-["إحماء في المكان","دقيقتان"],
-["استطالة لطيفة","3 دقائق"],
-["ضغط على الحائط أو الركبتين","2 × 5"],
-["بلانك","2 × 10 ثوانٍ"],
-["مشي في المكان","3 دقائق"]
-],
-[
-["إحماء","3 دقائق"],
-["استطالة لطيفة","3 دقائق"],
-["ضغط مناسب لقدرتك","3 × 8"],
-["بلانك","3 × 20 ثانية"],
-["سكوات بوزن الجسم","2 × 10"]
-],
-[
-["إحماء","5 دقائق"],
-["استطالة لطيفة","4 دقائق"],
-["ضغط حسب القدرة","3 × 10"],
-["بلانك","3 × 30 ثانية"],
-["سكوات","3 × 12"]
-]];
-let level=Number(localStorage.getItem("yf_level")||0);
-let checked=JSON.parse(localStorage.getItem("yf_checks")||"[]");
-let days=Number(localStorage.getItem("yf_days")||0);
-let lastDay=localStorage.getItem("yf_last")||"";
+ [
+  ["إحماء في المكان","دقيقتان"],
+  ["استطالة لطيفة","3 دقائق"],
+  ["ضغط على الحائط أو الركبتين","مجموعتان × 5"],
+  ["بلانك","مجموعتان × 10 ثوانٍ"],
+  ["مشي في المكان","3 دقائق"]
+ ],
+ [
+  ["إحماء خفيف","3 دقائق"],
+  ["استطالة لطيفة","3 دقائق"],
+  ["ضغط حسب قدرتك","3 مجموعات × 8"],
+  ["بلانك","3 مجموعات × 20 ثانية"],
+  ["سكوات بوزن الجسم","مجموعتان × 10"]
+ ],
+ [
+  ["إحماء خفيف","5 دقائق"],
+  ["استطالة لطيفة","4 دقائق"],
+  ["ضغط حسب قدرتك","3 مجموعات × 10"],
+  ["بلانك","3 مجموعات × 30 ثانية"],
+  ["سكوات بوزن الجسم","3 مجموعات × 12"]
+ ]
+];
+const levelNames=["المبتدئ","بناء القوة","مستوى التحدي"];
 const today=()=>new Date().toLocaleDateString("en-CA");
-if(localStorage.getItem("yf_date")!==today()){
- checked=[];
- localStorage.setItem("yf_checks","[]");
- localStorage.setItem("yf_date",today());
-}
+let level=Number(localStorage.getItem("yf_level")||0);
+let days=Number(localStorage.getItem("yf_days")||0);
+let last=localStorage.getItem("yf_last")||"";
+let date=localStorage.getItem("yf_date")||today();
+let checks=JSON.parse(localStorage.getItem("yf_checks")||"[]");
+if(date!==today()){checks=[];date=today();localStorage.setItem("yf_checks","[]");localStorage.setItem("yf_date",date)}
 function render(){
- document.getElementById("levelTitle").textContent=
- ["المستوى الأول 🟣","المستوى الثاني 💜","المستوى الثالث 🔥"][level];
- document.getElementById("levelDesc").textContent=
- ["بداية هادئة لبناء العادة والقوة.","زد التحدي عندما تكون مستعداً.","مستوى أعلى لمن أتقن السابق."][level];
+ document.getElementById("pill").textContent="LEVEL 0"+(level+1);
+ document.getElementById("levelLabel").textContent=levelNames[level];
  document.getElementById("days").textContent=days;
- const w=document.getElementById("workout");w.innerHTML="";
+ const workout=document.getElementById("workout");workout.innerHTML="";
  plans[level].forEach((item,i)=>{
- const label=document.createElement("label");label.className="exercise";
- const cb=document.createElement("input");cb.type="checkbox";cb.checked=checked.includes(i);
- cb.onchange=()=>{
- checked=cb.checked?[...new Set([...checked,i])]:checked.filter(x=>x!==i);
- localStorage.setItem("yf_checks",JSON.stringify(checked));update();
- };
- const name=document.createElement("span");name.textContent=item[0]+" — "+item[1];
- label.append(cb,name);w.append(label);
+  const row=document.createElement("label");row.className="exercise";
+  const cb=document.createElement("input");cb.type="checkbox";cb.checked=checks.includes(i);
+  cb.onchange=()=>{
+   checks=cb.checked?[...new Set([...checks,i])]:checks.filter(x=>x!==i);
+   localStorage.setItem("yf_checks",JSON.stringify(checks));update();
+  };
+  const label=document.createElement("span");label.className="label";
+  const name=document.createElement("span");name.className="name";name.textContent=item[0];
+  const small=document.createElement("small");small.textContent=item[1];
+  label.append(name,small);row.append(cb,label);workout.append(row);
+ });
+ const levels=document.getElementById("levels");levels.innerHTML="";
+ levelNames.forEach((name,i)=>{
+  const b=document.createElement("button");b.className="level-btn"+(level===i?" active":"");
+  const info=document.createElement("span");
+  const strong=document.createElement("strong");strong.textContent=name;
+  const small=document.createElement("small");small.textContent=["بداية هادئة","تدرّج في القوة","لما تكون جاهزًا"][i];
+  info.append(strong,small);
+  const num=document.createElement("span");num.className="number";num.textContent=(i+1<10?"0":"")+(i+1)+(level===i?" ✓":"");
+  b.append(info,num);b.onclick=()=>setLevel(i);levels.append(b);
  });
  update();
 }
-function update(){document.getElementById("done").textContent=checked.length+"/5";}
-function setLevel(n){level=n;localStorage.setItem("yf_level",n);checked=[];localStorage.setItem("yf_checks","[]");render();window.scrollTo(0,0);}
-function saveDay(){
- if(checked.length<5){alert("كمّل تمارين اليوم أو خذ راحتك وارجع لها لاحقاً 💜");return;}
- if(lastDay!==today()){days++;lastDay=today();localStorage.setItem("yf_days",days);localStorage.setItem("yf_last",lastDay);}
- render();alert("عاش يا يوسف! تم حفظ تقدمك اليوم 💜");
+function update(){
+ document.getElementById("count").textContent=checks.length+"/5";
+ const percent=Math.round(checks.length/5*100);
+ document.getElementById("percent").textContent=percent+"%";
+ document.getElementById("fill").style.width=percent+"%";
 }
-function resetToday(){checked=[];localStorage.setItem("yf_checks","[]");render();}
+function toast(message){
+ const t=document.getElementById("toast");t.textContent=message;t.style.display="block";
+}
+function saveDay(){
+ if(checks.length<5){toast("كمّل التمارين حسب قدرتك، أو ارجع لها لاحقًا.");return}
+ if(last!==today()){
+  days++;last=today();
+  localStorage.setItem("yf_days",days);localStorage.setItem("yf_last",last);
+ }
+ render();toast("تم حفظ إنجاز اليوم بنجاح.");
+}
+function resetToday(){
+ checks=[];localStorage.setItem("yf_checks","[]");
+ document.getElementById("toast").style.display="none";render();
+}
+function setLevel(n){
+ level=n;checks=[];localStorage.setItem("yf_level",level);
+ localStorage.setItem("yf_checks","[]");render();
+ window.scrollTo({top:0,behavior:"smooth"});
+}
 render();
 </script>
 </body>
