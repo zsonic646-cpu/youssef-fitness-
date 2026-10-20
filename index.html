@@ -1,1052 +1,332 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#090711">
-<meta name="description" content="YOUSSEF FITNESS — نظامك الشخصي لتنظيم التمرين ومتابعة تقدمك.">
-<title>YOUSSEF FITNESS | نظامك الرياضي</title>
-
+<title>YOUSSEF FITNESS | لياقتك تبدأ هنا</title>
 <style>
-:root {
-  --bg:#090711;
-  --panel:#12101e;
-  --panel2:#191528;
-  --purple:#8557ff;
-  --purple2:#b15cff;
-  --text:#f7f4ff;
-  --muted:#a8a1bc;
-  --line:#2a243b;
-  --green:#65e6b3;
-  --red:#ff758c;
-  --radius:20px;
-}
+:root{--bg:#090711;--panel:#151122;--panel2:#1c1630;--purple:#8b5cf6;--pink:#c084fc;--text:#f7f3ff;--muted:#aaa1bd;--border:#302541;--green:#4ade80}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0;background:
-  radial-gradient(ellipse at 85% 0%,#271448 0,transparent 35%),
-  var(--bg);color:var(--text);
-  font-family:system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;
-  line-height:1.7;min-height:100vh;
-}
+body{margin:0;background:radial-gradient(ellipse at top,#21123d 0%,var(--bg) 48%);color:var(--text);font-family:Arial,Tahoma,sans-serif;min-height:100vh}
 button,input,select,textarea{font:inherit}
 button{cursor:pointer}
-button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{
-  outline:2px solid var(--purple2);outline-offset:3px
-}
-button:disabled{opacity:.45;cursor:not-allowed}
-a{color:inherit}
-.app{max-width:1180px;margin:auto;padding:18px 15px 100px}
-header{
- display:flex;justify-content:space-between;align-items:center;gap:12px;
- padding:8px 0 22px
-}
-.brand{display:flex;align-items:center;gap:11px}
-.logo{
- width:46px;height:46px;border-radius:15px;display:grid;place-items:center;
- background:linear-gradient(135deg,var(--purple),var(--purple2));
- font-size:23px;font-weight:900;box-shadow:0 8px 30px #8557ff38
-}
-.brand h1{font-size:16px;letter-spacing:1px;margin:0}
-.brand small{display:block;color:var(--muted);font-size:11px}
-.pill{
- border:1px solid var(--line);background:#151222;border-radius:999px;
- padding:6px 11px;color:#d9caff;font-size:12px
-}
-.hero{
- position:relative;overflow:hidden;padding:26px;border:1px solid #48316a;
- border-radius:26px;background:linear-gradient(125deg,#241342,#171027 55%,#11101c);
- margin-bottom:18px
-}
-.hero:after{
- content:"";position:absolute;width:180px;height:180px;border-radius:50%;
- background:#9a56ff16;left:-40px;top:-70px;filter:blur(5px)
-}
-.eyebrow{color:#c4a8ff;font-size:12px;font-weight:800;letter-spacing:1px}
-.hero h2{font-size:clamp(25px,5vw,39px);line-height:1.3;margin:9px 0}
-.hero p{color:#c6bed8;max-width:620px;margin:0 0 18px;font-size:14px}
-.actions{display:flex;flex-wrap:wrap;gap:9px}
-.btn{
- border:1px solid var(--line);background:#211b31;color:var(--text);
- padding:10px 15px;border-radius:12px;font-weight:750;transition:.2s
-}
-.btn:hover{transform:translateY(-1px);border-color:#7956bc}
-.btn.primary{background:linear-gradient(135deg,var(--purple),#9b50eb);border:0;color:white}
-.btn.good{background:#16372f;border-color:#245d4c;color:#9af1ce}
-.btn.danger{color:#ff9bad}
-.btn.small{padding:6px 10px;font-size:12px}
-.grid{display:grid;gap:14px}
-.stats{grid-template-columns:repeat(4,minmax(0,1fr));margin:16px 0}
-.stat,.panel{
- background:linear-gradient(145deg,#151222,#100e19);
- border:1px solid var(--line);border-radius:var(--radius);padding:17px
-}
-.stat .label{font-size:12px;color:var(--muted)}
-.stat strong{display:block;font-size:26px;margin:4px 0;overflow-wrap:anywhere}
-.stat small{color:#b7a8d5;font-size:11px}
-.layout{grid-template-columns:minmax(0,1.45fr) minmax(260px,.8fr);align-items:start}
-.panel{margin-bottom:14px}
-.panel-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:13px}
-.panel h3{font-size:17px;margin:0}
-.sub{font-size:12px;color:var(--muted);margin:3px 0 0}
-.section-title{font-size:21px;margin:24px 0 12px}
-.progress{
- height:9px;border-radius:20px;background:#282236;overflow:hidden;margin:12px 0
-}
-.progress span{height:100%;display:block;width:0;background:linear-gradient(90deg,var(--purple),var(--purple2));transition:width .25s}
-.exercise{
- border:1px solid var(--line);background:#171424;border-radius:15px;
- padding:13px;margin:10px 0
-}
-.exercise-top{display:flex;align-items:flex-start;gap:10px}
-.exercise input[type=checkbox]{width:20px;height:20px;accent-color:var(--purple);margin-top:5px;flex-shrink:0}
-.exercise-title{font-weight:800}
-.exercise-desc{font-size:12px;color:var(--muted)}
-.exercise-meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
-.tag{font-size:11px;background:#29213d;color:#d7c5ff;border-radius:8px;padding:3px 8px}
-.tag.done{background:#17382f;color:#91edc7}
-.exercise-details{font-size:12px;color:#c2bad2;margin:8px 0 0 30px}
-.field{margin:12px 0}
-.field label{display:block;font-size:12px;color:#c9c1d9;margin-bottom:5px}
-.field input,.field select,.field textarea{
- width:100%;background:#0c0a13;border:1px solid var(--line);color:var(--text);
- border-radius:11px;padding:11px;min-width:0
-}
-.field textarea{min-height:85px;resize:vertical}
-.row-fields{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.muted{color:var(--muted);font-size:12px}
-.notice{
- background:#211a31;border:1px solid #44315f;color:#d9c9ff;
- padding:12px;border-radius:13px;font-size:12px;margin:12px 0
-}
-.days{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
-.day{
- text-align:center;background:#191526;border:1px solid var(--line);
- border-radius:11px;padding:8px 2px;font-size:11px;color:var(--muted)
-}
-.day b{display:block;font-size:15px;color:var(--text)}
-.day.active{border-color:var(--purple);background:#30204c}
-.day.complete{border-color:#327b62;background:#17352d}
-.water-count{font-size:28px;font-weight:850}
-.water-glasses{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0}
-.water-glasses button{
- width:35px;height:40px;border-radius:9px;border:1px solid var(--line);
- background:#181426;color:#aaa1bd;font-size:18px
-}
-.water-glasses button.filled{background:#29204a;border-color:#a57aff;color:#d9c4ff}
-.timer-display{font-size:42px;font-weight:900;text-align:center;letter-spacing:2px;padding:10px}
-.timer-controls{display:flex;justify-content:center;flex-wrap:wrap;gap:8px}
-.history-item{
- display:flex;justify-content:space-between;gap:10px;align-items:center;
- border-bottom:1px solid var(--line);padding:10px 0;font-size:13px
-}
-.history-item:last-child{border-bottom:0}
-.empty{text-align:center;color:var(--muted);padding:20px 5px;font-size:13px}
-.tabs{
- display:flex;gap:8px;overflow-x:auto;padding:3px 0 10px;
- scrollbar-width:thin
-}
-.tab{white-space:nowrap}
-.tab.active{background:var(--purple);border-color:var(--purple)}
-.view{display:none}
-.view.active{display:block}
-footer{text-align:center;color:#777087;font-size:11px;padding:24px 0}
-.toast{
- position:fixed;bottom:85px;left:50%;transform:translateX(-50%);
- background:#252035;border:1px solid #51416d;border-radius:12px;
- padding:10px 15px;z-index:30;max-width:90vw;text-align:center;
- box-shadow:0 8px 35px #0008;font-size:13px
-}
-.bottom-nav{
- display:none;position:fixed;z-index:20;bottom:0;left:0;right:0;
- padding:9px 8px calc(9px + env(safe-area-inset-bottom));
- background:#100d19ed;backdrop-filter:blur(18px);border-top:1px solid var(--line);
- grid-template-columns:repeat(5,1fr)
-}
-.bottom-nav button{border:0;background:none;color:var(--muted);font-size:10px;padding:5px 1px}
-.bottom-nav button span{display:block;font-size:19px}
-.bottom-nav button.active{color:#c8aaff}
-.hidden{display:none!important}
-@media(max-width:760px){
- .app{padding:12px 12px 95px}
- header{padding-bottom:15px}
- .hero{padding:21px 18px}
- .stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
- .stat{padding:13px}
- .stat strong{font-size:23px}
- .layout{grid-template-columns:1fr;gap:0}
- .bottom-nav{display:grid}
- .section-title{font-size:19px}
-}
-@media(min-width:761px){
- .bottom-nav{display:none}
-}
-@media(prefers-reduced-motion:reduce){
- *,*::before,*::after{scroll-behavior:auto!important;transition:none!important}
-}
+header{padding:22px 16px 12px;max-width:1000px;margin:auto}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{width:48px;height:48px;border-radius:15px;background:linear-gradient(135deg,#a855f7,#6d28d9);display:grid;place-items:center;font-size:25px;box-shadow:0 0 25px #8b5cf644}
+h1{font-size:20px;margin:0;letter-spacing:1px}
+header p{margin:6px 0;color:var(--muted);font-size:13px}
+main{max-width:1000px;margin:auto;padding:10px 14px 100px}
+.hero{border:1px solid #553b79;border-radius:24px;padding:25px 20px;background:linear-gradient(120deg,#281344,#171025 65%,#251039);position:relative;overflow:hidden}
+.hero:after{content:"💪";position:absolute;left:10px;bottom:-22px;font-size:95px;opacity:.12}
+.eyebrow{color:#d8b4fe;font-size:12px;font-weight:bold}
+.hero h2{font-size:27px;margin:12px 0}
+.hero p{color:#d0c4e2;line-height:1.8;font-size:14px;max-width:520px}
+.btn{border:0;border-radius:12px;padding:12px 16px;background:linear-gradient(135deg,#a855f7,#7c3aed);color:white;font-weight:bold}
+.btn.secondary{background:#2a203b;border:1px solid var(--border)}
+.btn.danger{background:#4b202b}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0}
+.stat,.card{background:var(--panel);border:1px solid var(--border);border-radius:17px;padding:15px}
+.stat strong{display:block;font-size:24px;color:#d8b4fe;margin-bottom:6px}
+.stat span{color:var(--muted);font-size:12px}
+.tabs{display:flex;gap:8px;overflow:auto;padding:8px 0 15px;position:sticky;top:0;background:#090711ee;z-index:5}
+.tab{white-space:nowrap;padding:11px 15px;border-radius:12px;border:1px solid var(--border);background:var(--panel);color:var(--muted)}
+.tab.active{background:#382052;color:white;border-color:#9b5de5}
+.section{display:none}
+.section.active{display:block}
+.section-title{font-size:20px;margin:15px 0}
+.muted{color:var(--muted);font-size:13px;line-height:1.7}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.field{display:flex;flex-direction:column;gap:8px;margin:12px 0}
+label{font-size:13px;color:#d6c9e7}
+input,select,textarea{width:100%;background:#0e0a18;border:1px solid var(--border);border-radius:11px;color:white;padding:12px;outline:none}
+input:focus,select:focus,textarea:focus{border-color:var(--purple)}
+textarea{min-height:100px;resize:vertical}
+.row{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.pill{display:inline-block;padding:5px 9px;border-radius:20px;background:#302044;color:#d8b4fe;font-size:11px}
+.day{margin:12px 0;background:var(--panel);border:1px solid var(--border);border-radius:16px;overflow:hidden}
+.dayhead{padding:14px;background:var(--panel2);display:flex;justify-content:space-between;align-items:center;gap:8px}
+.daybody{padding:13px}
+.exercise{display:flex;align-items:center;gap:10px;padding:11px 0;border-bottom:1px solid #302541}
+.exercise:last-child{border-bottom:0}
+.exercise-icon{width:44px;height:44px;display:grid;place-items:center;background:#2b1b41;border-radius:12px;font-size:24px;flex-shrink:0}
+.exercise-info{flex:1;min-width:0}
+.exercise-info strong{font-size:14px}
+.exercise-info small{display:block;color:var(--muted);margin-top:5px;font-size:12px}
+.check{width:21px;height:21px;accent-color:#a855f7;flex-shrink:0}
+.exercise a{color:#d8b4fe;font-size:12px;text-decoration:none}
+.progress{height:8px;background:#302541;border-radius:10px;overflow:hidden;margin:12px 0}
+.progress div{height:100%;background:linear-gradient(90deg,#7c3aed,#d8b4fe);width:0%;transition:.2s}
+.water-cup{font-size:45px;text-align:center;margin:8px}
+.water-number{text-align:center;font-size:34px;font-weight:bold;color:#d8b4fe}
+.big-timer{text-align:center;font-size:56px;font-weight:bold;color:#d8b4fe;margin:25px 0;font-variant-numeric:tabular-nums}
+.timer-buttons{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.exercise-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.exercise-card{background:var(--panel);border:1px solid var(--border);border-radius:15px;padding:13px}
+.exercise-card .emoji{font-size:34px}
+.exercise-card h3{font-size:15px;margin:8px 0}
+.exercise-card p{font-size:12px;color:var(--muted);line-height:1.7}
+.exercise-card a{color:#d8b4fe;text-decoration:none;font-size:12px}
+footer{text-align:center;color:#736b85;padding:25px 10px;font-size:12px}
+.notice{background:#201733;border:1px solid #493064;border-radius:12px;padding:12px;font-size:13px;line-height:1.8;color:#d8c9ed}
+@media(min-width:700px){.hero{padding:35px}.hero h2{font-size:34px}.stats{grid-template-columns:repeat(3,1fr)}.exercise-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:420px){.stats{gap:7px}.stat{padding:11px}.stat strong{font-size:20px}.hero h2{font-size:23px}.grid{grid-template-columns:1fr}.big-timer{font-size:48px}}
 </style>
 </head>
-
 <body>
-<div class="app">
 <header>
   <div class="brand">
-    <div class="logo">Y</div>
+    <div class="logo">🏋️</div>
     <div>
       <h1>YOUSSEF FITNESS</h1>
-      <small>YOUR TRAINING SYSTEM</small>
+      <p>قوتك بتبدأ من قرارك</p>
     </div>
   </div>
-  <span class="pill" id="levelBadge">LEVEL 01</span>
 </header>
 
+<main>
 <section class="hero">
-  <div class="eyebrow">DISCIPLINE • PROGRESS • RECOVERY</div>
-  <h2 id="greeting">ابدأ من مكانك، واتقدم خطوة بخطوة.</h2>
-  <p id="heroText">خطة تدريب منظمة، ومتابعة لتقدمك، وراحة كفاية عشان تستمر.</p>
-  <div class="actions">
-    <button class="btn primary" onclick="go('workout')">ابدأ تمرين اليوم ←</button>
-    <button class="btn" onclick="go('progress')">شوف تقدمك</button>
-  </div>
+  <span class="eyebrow">YOUR FITNESS JOURNEY</span>
+  <h2>ابني قوتك، خطوة بخطوة 🔥</h2>
+  <p>نظّم تمارينك، تابع تقدمك، وسجّل شرب المياه. مش مطلوب تكون مثالي؛ المطلوب تستمر وتدي جسمك الراحة اللي يستحقها.</p>
+  <button class="btn" onclick="showTab('workout')">ابدأ تمرينك ←</button>
 </section>
 
-<div class="grid stats">
-  <div class="stat">
-    <div class="label">إنجاز اليوم</div>
-    <strong id="todayPercent">0%</strong>
-    <div class="progress"><span id="todayBar"></span></div>
-    <small id="todaySub">ابدأ أول تمرين</small>
-  </div>
-  <div class="stat">
-    <div class="label">أيام التدريب المكتملة</div>
-    <strong id="totalDays">0</strong>
-    <small>من سجلك المحفوظ</small>
-  </div>
-  <div class="stat">
-    <div class="label">تمارين مكتملة اليوم</div>
-    <strong id="doneCount">0/0</strong>
-    <small>تتحدث مع كل علامة</small>
-  </div>
-  <div class="stat">
-    <div class="label">المياه اليوم</div>
-    <strong id="waterStat">0</strong>
-    <small>كوب مسجل</small>
-  </div>
+<div class="stats">
+  <div class="stat"><strong id="doneCount">0</strong><span>تمرين مكتمل</span></div>
+  <div class="stat"><strong id="waterStat">0</strong><span>كوب مياه اليوم</span></div>
+  <div class="stat"><strong id="streak">0</strong><span>يوم سجّلت فيه نشاط</span></div>
 </div>
 
-<nav class="tabs" aria-label="أقسام التطبيق">
-  <button class="btn tab active" data-view="workout" onclick="go('workout')">🏋️ التمرين</button>
-  <button class="btn tab" data-view="progress" onclick="go('progress')">📈 التقدم</button>
-  <button class="btn tab" data-view="water" onclick="go('water')">💧 المياه</button>
-  <button class="btn tab" data-view="timer" onclick="go('timer')">⏱️ الراحة</button>
-  <button class="btn tab" data-view="settings" onclick="go('settings')">⚙️ الإعدادات</button>
+<nav class="tabs">
+  <button class="tab active" data-tab="workout" onclick="showTab('workout')">💪 التمارين</button>
+  <button class="tab" data-tab="library" onclick="showTab('library')">📚 مكتبة التمارين</button>
+  <button class="tab" data-tab="progress" onclick="showTab('progress')">📊 تقدمي</button>
+  <button class="tab" data-tab="water" onclick="showTab('water')">💧 المياه</button>
+  <button class="tab" data-tab="timer" onclick="showTab('timer')">⏱️ المؤقت</button>
+  <button class="tab" data-tab="settings" onclick="showTab('settings')">⚙️ الإعدادات</button>
 </nav>
 
-<section id="view-workout" class="view active">
-  <div class="grid layout">
-    <div>
-      <div class="panel">
-        <div class="panel-head">
-          <div>
-            <h3 id="workoutTitle">تمرين اليوم</h3>
-            <p class="sub" id="workoutSubtitle">اختر مستواك وابدأ بهدوء.</p>
-          </div>
-          <span class="pill" id="workoutKind">تدريب</span>
-        </div>
-        <div class="field">
-          <label for="levelSelect">مستوى البرنامج</label>
-          <select id="levelSelect" onchange="changeLevel(this.value)">
-            <option value="0">المستوى الأول — مبتدئ</option>
-            <option value="1">المستوى الثاني — متوسط</option>
-            <option value="2">المستوى الثالث — متقدم</option>
-          </select>
-        </div>
-        <div class="notice" id="dayNotice">الإحماء التدريجي قبل التمرين مهم. اختار النسخة المناسبة لقدرتك.</div>
-        <div class="progress"><span id="workoutBar"></span></div>
-        <p class="sub" id="workoutProgressText">0% مكتمل</p>
-        <div id="exerciseList"></div>
-        <div class="actions" style="margin-top:15px">
-          <button class="btn primary" onclick="finishWorkout()">حفظ إنجاز اليوم</button>
-          <button class="btn" onclick="uncheckAll()">إلغاء العلامات</button>
-        </div>
-        <p class="muted">سجّل التمرين بعد أدائه فعلًا. العلامات لا تعني قياسًا طبيًا أو تقييمًا دقيقًا للياقة.</p>
-      </div>
-    </div>
-
-    <div>
-      <div class="panel">
-        <div class="panel-head"><h3>قاعدة الاستمرار</h3><span>✦</span></div>
-        <p class="muted">الجودة أهم من العدد. خفف التمرين أو توقف لو ظهر ألم أو دوخة أو ضيق نفس غير معتاد.</p>
-        <div class="notice">ابدأ بإحماء 5–8 دقائق، ونفّذ الحركات ببطء وتحكم. خُد وقت راحة كافيًا بين المجموعات.</div>
-        <button class="btn" style="width:100%" onclick="go('timer')">فتح مؤقت الراحة</button>
-      </div>
-      <div class="panel">
-        <div class="panel-head"><h3>ملاحظات اليوم</h3><span>📝</span></div>
-        <div class="field">
-          <label for="dailyNote">إحساسك بالتمرين أو ملاحظاتك</label>
-          <textarea id="dailyNote" maxlength="1000" placeholder="مثال: التمرين كان سهل، محتاج أركز على الحركة..."></textarea>
-        </div>
-        <button class="btn" onclick="saveNote()">حفظ الملاحظة</button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="view-progress" class="view">
-  <h2 class="section-title">سجل تقدمك</h2>
-  <div class="panel">
-    <div class="panel-head">
-      <div><h3>آخر 7 أيام</h3><p class="sub">الأيام المسجلة على هذا الجهاز</p></div>
-    </div>
-    <div class="days" id="weekDays"></div>
-    <div class="notice">الأيام المعروضة تعتمد على سجلك المحلي. لا يوجد اتصال بسيرفر أو حساب سحابي في هذه النسخة.</div>
-  </div>
-  <div class="panel">
-    <div class="panel-head"><h3>تاريخ التمارين</h3><span class="pill" id="historyCount">0 يوم</span></div>
-    <div id="historyList"></div>
-  </div>
-  <div class="panel">
-    <h3>ملخص بياناتك</h3>
-    <div class="history-item"><span>مستوى البرنامج</span><b id="summaryLevel">مبتدئ</b></div>
-    <div class="history-item"><span>أيام مكتملة</span><b id="summaryDays">0</b></div>
-    <div class="history-item"><span>أكواب المياه اليوم</span><b id="summaryWater">0</b></div>
-    <div class="history-item"><span>آخر تحديث</span><b id="summaryDate">—</b></div>
-  </div>
-</section>
-
-<section id="view-water" class="view">
-  <h2 class="section-title">متابعة شرب المياه</h2>
-  <div class="panel">
-    <p class="sub">سجّل الأكواب التي شربتها خلال اليوم. احتياج المياه يختلف حسب الجو والنشاط والحالة الصحية.</p>
-    <div class="water-count"><span id="waterCount">0</span> <span class="muted">كوب مسجل اليوم</span></div>
-    <div class="progress"><span id="waterBar"></span></div>
-    <div id="waterButtons" class="water-glasses"></div>
-    <div class="actions">
-      <button class="btn primary" onclick="addWater()">+ سجل كوب</button>
-      <button class="btn" onclick="removeWater()">− تراجع عن كوب</button>
-    </div>
-    <p class="muted">المؤشر هدف تنظيمي قابل للتعديل، وليس توصية طبية أو كمية مناسبة لكل شخص.</p>
+<section id="workout" class="section active">
+  <h2 class="section-title">خطة التمرين 💪</h2>
+  <div class="card">
     <div class="field">
-      <label for="waterGoal">هدفك اليومي بالأكواب (اختياري)</label>
-      <input id="waterGoal" type="number" min="1" max="30" step="1" value="6">
-    </div>
-    <button class="btn" onclick="saveWaterGoal()">حفظ الهدف</button>
-  </div>
-</section>
-
-<section id="view-timer" class="view">
-  <h2 class="section-title">مؤقت الراحة</h2>
-  <div class="panel">
-    <p class="sub">استخدمه لتنظيم الراحة بين المجموعات. الوقت قابل للتعديل.</p>
-    <div class="timer-display" id="timerDisplay" role="timer" aria-live="off">01:00</div>
-    <div class="field">
-      <label for="timerSeconds">مدة المؤقت بالثواني</label>
-      <input id="timerSeconds" type="number" min="5" max="600" value="60">
-    </div>
-    <div class="timer-controls">
-      <button class="btn primary" id="timerStart" onclick="startTimer()">ابدأ</button>
-      <button class="btn" onclick="pauseTimer()">إيقاف مؤقت</button>
-      <button class="btn" onclick="resetTimer()">إعادة ضبط</button>
-      <button class="btn" onclick="setTimer(30)">30 ثانية</button>
-      <button class="btn" onclick="setTimer(60)">60 ثانية</button>
-      <button class="btn" onclick="setTimer(90)">90 ثانية</button>
-    </div>
-    <p class="muted" id="timerStatus" style="text-align:center;margin-top:15px">جاهز للبدء</p>
-  </div>
-</section>
-
-<section id="view-settings" class="view">
-  <h2 class="section-title">الإعدادات والبيانات</h2>
-  <div class="panel">
-    <h3>تخصيص التجربة</h3>
-    <div class="field">
-      <label for="userName">الاسم الظاهر (اختياري)</label>
-      <input id="userName" maxlength="35" placeholder="اكتب اسمك">
-    </div>
-    <div class="field">
-      <label for="weekStart">بداية الأسبوع</label>
-      <select id="weekStart">
-        <option value="6">السبت</option>
-        <option value="0">الأحد</option>
-        <option value="1">الاثنين</option>
+      <label for="level">اختار مستوى مناسب ليك</label>
+      <select id="level" onchange="renderPlan()">
+        <option value="beginner">مبتدئ — بداية هادئة</option>
+        <option value="intermediate">متوسط — لو متعود على التمرين</option>
+        <option value="bodyweight">تمارين وزن الجسم</option>
       </select>
     </div>
-    <button class="btn primary" onclick="saveSettings()">حفظ الإعدادات</button>
+    <p class="muted">الخطة اقتراح عام. ابدأ بهدوء، وقلّل التكرارات أو خُد راحة لو التمرين صعب. الألم الحاد معناه توقف.</p>
   </div>
-  <div class="panel">
-    <h3>نسخة احتياطية</h3>
-    <p class="muted">صدّر بياناتك إلى ملف JSON للاحتفاظ بنسخة على جهازك.</p>
-    <button class="btn primary" onclick="exportData()">تصدير بياناتي</button>
-    <div class="field">
-      <label for="importFile">استيراد نسخة احتياطية من هذا التطبيق</label>
-      <input id="importFile" type="file" accept=".json,application/json">
-    </div>
-    <button class="btn" onclick="importData()">استيراد البيانات</button>
-  </div>
-  <div class="panel">
-    <h3>إدارة البيانات</h3>
-    <p class="muted">بياناتك محفوظة محليًا في المتصفح. مسح بيانات التطبيق لا يمكن التراجع عنه إلا بوجود نسخة احتياطية.</p>
-    <button class="btn danger" onclick="clearData()">مسح بيانات هذا التطبيق</button>
+  <div id="plan"></div>
+  <div class="card">
+    <h3>📝 ملاحظاتك</h3>
+    <textarea id="notes" placeholder="اكتب ملاحظاتك عن التمرين أو هدفك..."></textarea>
+    <button class="btn" onclick="saveNotes()">حفظ الملاحظات</button>
+    <span id="noteStatus" class="muted"></span>
   </div>
 </section>
 
-<footer>YOUSSEF FITNESS · نسخة محلية شخصية · استمر على قدّك</footer>
-</div>
+<section id="library" class="section">
+  <h2 class="section-title">مكتبة التمارين 📚</h2>
+  <p class="muted">ابحث عن تمرين وافتح فيديوهات توضيحية له. الروابط بتفتح نتائج البحث، مش فيديوهات مدمجة في الموقع.</p>
+  <div class="field"><label for="exerciseSearch">ابحث عن تمرين</label><input id="exerciseSearch" placeholder="مثال: ضغط، سكوات..." oninput="renderLibrary()"></div>
+  <div class="field"><label for="muscleFilter">نوع التمرين</label>
+    <select id="muscleFilter" onchange="renderLibrary()">
+      <option value="all">كل التمارين</option><option value="chest">الصدر</option><option value="legs">الرجل</option><option value="back">الظهر</option><option value="core">البطن</option><option value="cardio">اللياقة</option>
+    </select>
+  </div>
+  <div id="libraryGrid" class="exercise-grid"></div>
+</section>
 
-<nav class="bottom-nav" aria-label="التنقل السريع">
-  <button class="active" data-view="workout" onclick="go('workout')"><span>🏋️</span>التمرين</button>
-  <button data-view="progress" onclick="go('progress')"><span>📈</span>التقدم</button>
-  <button data-view="water" onclick="go('water')"><span>💧</span>المياه</button>
-  <button data-view="timer" onclick="go('timer')"><span>⏱️</span>الراحة</button>
-  <button data-view="settings" onclick="go('settings')"><span>⚙️</span>الإعدادات</button>
-</nav>
+<section id="progress" class="section">
+  <h2 class="section-title">تقدمك 📊</h2>
+  <div class="card">
+    <div class="row"><strong>إنجاز التمارين المعروضة</strong><span id="progressLabel" class="pill">0%</span></div>
+    <div class="progress"><div id="progressBar"></div></div>
+    <p class="muted" id="progressText">ابدأ بتسجيل التمارين عشان تتابع تقدمك.</p>
+  </div>
+  <div class="card" style="margin-top:12px">
+    <h3>سجل نشاطك</h3>
+    <p class="muted">عدد التمارين المكتملة المسجّل على الجهاز: <strong id="historyCount">0</strong></p>
+    <p class="muted">عدد الأيام المختلفة اللي سجّلت فيها إنجاز: <strong id="activeDays">0</strong></p>
+  </div>
+  <div class="notice" style="margin-top:12px">الأرقام دي مبنية على تسجيلك داخل الموقع، مش قياسات طبية أو تقدير لحرق السعرات.</div>
+</section>
 
-<div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
+<section id="water" class="section">
+  <h2 class="section-title">متابعة المياه 💧</h2>
+  <div class="card">
+    <div class="water-cup">💧</div>
+    <div class="water-number"><span id="waterCount">0</span> كوب</div>
+    <p class="muted" style="text-align:center">سجّل كل كوب تشربه. احتياج المياه بيختلف حسب الجو والنشاط والجسم.</p>
+    <div class="progress"><div id="waterBar"></div></div>
+    <div class="row" style="justify-content:center;margin-top:18px">
+      <button class="btn" onclick="changeWater(1)">＋ إضافة كوب</button>
+      <button class="btn secondary" onclick="changeWater(-1)">− إزالة كوب</button>
+    </div>
+    <p class="muted" style="text-align:center">تسجيل اليوم بيتجدد تلقائيًا مع بداية يوم جديد.</p>
+  </div>
+</section>
+
+<section id="timer" class="section">
+  <h2 class="section-title">مؤقت التمرين ⏱️</h2>
+  <div class="card">
+    <p class="muted" style="text-align:center">اختار مدة الراحة بين الجولات.</p>
+    <div class="row">
+      <button class="btn secondary" onclick="setTimer(30)">30 ثانية</button>
+      <button class="btn secondary" onclick="setTimer(60)">60 ثانية</button>
+      <button class="btn secondary" onclick="setTimer(90)">90 ثانية</button>
+    </div>
+    <div class="big-timer" id="timerDisplay">01:00</div>
+    <div class="timer-buttons">
+      <button class="btn" id="timerStart" onclick="toggleTimer()">▶ تشغيل</button>
+      <button class="btn secondary" onclick="resetTimer()">↺ إعادة</button>
+    </div>
+    <p id="timerMessage" class="muted" style="text-align:center">خد راحتك، ومش لازم تستعجل.</p>
+  </div>
+</section>
+
+<section id="settings" class="section">
+  <h2 class="section-title">الإعدادات ⚙️</h2>
+  <div class="card">
+    <h3>حفظ بياناتك</h3>
+    <p class="muted">بياناتك محفوظة محليًا في المتصفح على الجهاز ده. لو مسحت بيانات المتصفح ممكن تفقدها.</p>
+    <div class="grid">
+      <button class="btn" onclick="exportData()">📤 تصدير نسخة احتياطية</button>
+      <button class="btn secondary" onclick="document.getElementById('importFile').click()">📥 استيراد نسخة</button>
+    </div>
+    <input type="file" id="importFile" accept=".json,application/json" style="display:none" onchange="importData(event)">
+  </div>
+  <div class="card" style="margin-top:12px">
+    <h3>إعادة ضبط البيانات</h3>
+    <p class="muted">احذف بيانات الموقع المحفوظة على الجهاز. الإجراء ده لا يمكن التراجع عنه إلا لو عندك نسخة احتياطية.</p>
+    <button class="btn danger" onclick="clearData()">مسح البيانات المحفوظة</button>
+  </div>
+  <div class="card" style="margin-top:12px">
+    <h3>عن الموقع</h3>
+    <p class="muted">YOUSSEF FITNESS — أداة بسيطة لتنظيم التمرين وتسجيل العادات. مش بديل عن طبيب أو مدرب مؤهل.</p>
+  </div>
+</section>
+
+<footer>YOUSSEF FITNESS © <span id="year"></span><br>استمر على قدّك، والتطور بييجي مع الوقت 💜</footer>
+</main>
 
 <script>
-"use strict";
-
-/*
- * YOUSSEF FITNESS
- * Local-first training tracker.
- * No fake analytics, external libraries, or network calls.
- * Existing keys yf_level / yf_days / yf_last / yf_date / yf_checks
- * are preserved and migrated where possible.
- */
-
-const $ = id => document.getElementById(id);
-const STORAGE = {
-  level: "yf_level",
-  days: "yf_days",
-  last: "yf_last",
-  date: "yf_date",
-  checks: "yf_checks",
-  history: "yf_history_v2",
-  water: "yf_water_v2",
-  notes: "yf_notes_v2",
-  settings: "yf_settings_v2",
-  goal: "yf_water_goal_v2"
-};
-const LEVEL_NAMES = ["مبتدئ", "متوسط", "متقدم"];
-const DAYS_AR = ["الأحد","الاثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"];
-const DAYS_SHORT = ["أحد","اثن","ثلا","أرب","خمي","جمع","سبت"];
-
-const PROGRAMS = [
-  {
-    name:"المستوى الأول — مبتدئ",
-    days:[
-      {name:"جسم كامل A",kind:"تدريب",items:[
-        ["مشي في المكان","5 دقائق","إحماء خفيف، وتوقف لو حسيت بدوخة."],
-        ["قرفصاء إلى كرسي","2 × 8","استخدم كرسيًا ثابتًا، وانزل بمدى مريح."],
-        ["ضغط على الحائط","2 × 8","الجسم مستقيم والحركة ببطء."],
-        ["رفع الحوض","2 × 10","ارفع الحوض بتحكم دون تقويس الظهر."],
-        ["رفع الكعب","2 × 10","استند إلى حائط للتوازن عند الحاجة."],
-        ["مشي هادئ","3–5 دقائق","تهدئة تدريجية بعد التمرين."]
-      ]},
-      {name:"نشاط خفيف",kind:"استشفاء",items:[
-        ["مشي مريح","10–20 دقيقة","قسّم الوقت لفترات أقصر عند الحاجة."],
-        ["حركة الكتفين","2 × 8","حركة لطيفة دون ألم."],
-        ["حركة الكاحل","2 × 8 لكل قدم","حافظ على الحركة المريحة."]
-      ]},
-      {name:"جسم كامل B",kind:"تدريب",items:[
-        ["مشي في المكان","5 دقائق","ابدأ تدريجيًا."],
-        ["الجلوس والوقوف من كرسي","2 × 8","استخدم كرسيًا ثابتًا."],
-        ["ضغط على الحائط","2 × 8","خفف الميل إذا كانت الحركة صعبة."],
-        ["Bird Dog مبسط","2 × 6 لكل جانب","مد ذراعًا أو رجلًا بالتبادل مع ثبات الجذع."],
-        ["رفع الكعب","2 × 10","استند عند الحاجة."],
-        ["مشي هادئ","3–5 دقائق","اختم بهدوء."]
-      ]},
-      {name:"راحة أو مشي اختياري",kind:"راحة",items:[
-        ["راحة واستشفاء","حسب الحاجة","النوم الكافي والأكل المنتظم جزء من التدريب."],
-        ["مشي خفيف اختياري","5–15 دقيقة","اختياري فقط، وليس مطلوبًا في يوم الراحة."]
-      ]},
-      {name:"جسم كامل A",kind:"تدريب",items:[
-        ["مشي في المكان","5 دقائق","إحماء تدريجي."],
-        ["قرفصاء إلى كرسي","2 × 8","مدى حركة مريح."],
-        ["ضغط على الحائط","2 × 8","لا تحبس نفسك."],
-        ["رفع الحوض","2 × 10","حركة متحكم فيها."],
-        ["رفع الكعب","2 × 10","توازن آمن."],
-        ["مشي هادئ","3–5 دقائق","تهدئة."]
-      ]},
-      {name:"نشاط خفيف",kind:"استشفاء",items:[
-        ["مشي مريح","10–20 دقيقة","حسب قدرتك."],
-        ["حركة لطيفة للجسم","5 دقائق","من غير شد مؤلم أو ضغط على المفاصل."]
-      ]},
-      {name:"راحة",kind:"راحة",items:[
-        ["استشفاء","اليوم","لا تحتاج لتعويض يوم فائت بتمرين مضاعف."]
-      ]}
-    ]
-  },
-  {
-    name:"المستوى الثاني — متوسط",
-    days:[
-      {name:"جسم كامل A",kind:"تدريب",items:[
-        ["إحماء ومشي","5–8 دقائق","ارفع الشدة تدريجيًا."],
-        ["قرفصاء إلى كرسي","3 × 10","تحكم في النزول والصعود."],
-        ["ضغط على سطح مرتفع ثابت","3 × 8","اختَر ارتفاعًا يسمح بأداء سليم."],
-        ["رفع الحوض","3 × 12","تجنب تقويس أسفل الظهر."],
-        ["Bird Dog","2 × 8 لكل جانب","حافظ على ثبات الجذع."],
-        ["رفع الكعب","3 × 12","استند إذا احتجت."],
-        ["تهدئة","5 دقائق","مشي بطيء وتنفس طبيعي."]
-      ]},
-      {name:"نشاط خفيف",kind:"استشفاء",items:[
-        ["مشي مريح","15–25 دقيقة","يمكن تقسيم الوقت."],
-        ["حركة المفاصل","5 دقائق","من دون ألم."]
-      ]},
-      {name:"جسم كامل B",kind:"تدريب",items:[
-        ["إحماء","5–8 دقائق","جهز الجسم تدريجيًا."],
-        ["اندفاع قصير مع دعم","2 × 6 لكل جانب","امسك دعمًا ثابتًا، واستبدله بجلوس ووقوف لو صعب."],
-        ["ضغط على سطح مرتفع","3 × 8","لا تصل للفشل العضلي."],
-        ["Hip Hinge دون وزن","3 × 10","ادفع الحوض للخلف مع ظهر محايد."],
-        ["رفع الذراعين بشكل Y","2 × 8","بحركة مريحة ومن دون أوزان."],
-        ["تهدئة","5 دقائق","اختم تدريجيًا."]
-      ]},
-      {name:"راحة أو حركة خفيفة",kind:"راحة",items:[
-        ["استشفاء","حسب الحاجة","الراحة جزء من البرنامج."],
-        ["مشي اختياري","10–20 دقيقة","بإيقاع مريح."]
-      ]},
-      {name:"جسم كامل A",kind:"تدريب",items:[
-        ["إحماء","5–8 دقائق","تدريجي."],
-        ["قرفصاء إلى كرسي","3 × 10","تحكم."],
-        ["ضغط على سطح مرتفع","3 × 8","مدى مريح."],
-        ["رفع الحوض","3 × 12","تحكم."],
-        ["رفع الكعب","3 × 12","توازن."],
-        ["تهدئة","5 دقائق","تنفس طبيعي."]
-      ]},
-      {name:"نشاط اختياري",kind:"استشفاء",items:[
-        ["مشي أو دراجة ثابتة","15–25 دقيقة","اختر نشاطًا مريحًا."],
-        ["حركة لطيفة","5 دقائق","اختياري."]
-      ]},
-      {name:"راحة",kind:"راحة",items:[
-        ["استشفاء","اليوم","نم جيدًا وخذ راحة كافية."]
-      ]}
-    ]
-  },
-  {
-    name:"المستوى الثالث — متقدم",
-    days:[
-      {name:"قوة الجسم A",kind:"تدريب",items:[
-        ["إحماء ديناميكي خفيف","6–8 دقائق","تدرج قبل التمارين."],
-        ["قرفصاء بوزن الجسم","3 × 10–12","استخدم كرسيًا عند الحاجة."],
-        ["ضغط على سطح مرتفع أو الأرض","3 × 6–10","اختَر نسخة تحافظ فيها على الوضع الصحيح."],
-        ["رفع الحوض","3 × 12–15","توقف إذا ظهر ألم."],
-        ["Bird Dog","3 × 8 لكل جانب","حركة ثابتة."],
-        ["رفع الكعب","3 × 12–15","تحكم."],
-        ["تهدئة","5 دقائق","خفف الحركة تدريجيًا."]
-      ]},
-      {name:"نشاط هوائي معتدل",kind:"استشفاء",items:[
-        ["مشي سريع مريح","20–30 دقيقة","تستطيع الكلام أثناء الحركة."],
-        ["حركة مرونة لطيفة","5 دقائق","دون ألم."]
-      ]},
-      {name:"قوة الجسم B",kind:"تدريب",items:[
-        ["إحماء","6–8 دقائق","تدريجي."],
-        ["اندفاع مدعوم","3 × 8 لكل جانب","استبدله بجلوس ووقوف عند الحاجة."],
-        ["ضغط على سطح مناسب","3 × 8–12","لا تضحي بالوضع الصحيح."],
-        ["Hip Hinge","3 × 12","من دون وزن أو بحمل خفيف آمن فقط."],
-        ["رفع الذراعين بشكل Y","3 × 10","من دون ألم."],
-        ["تهدئة","5 دقائق","اختم تدريجيًا."]
-      ]},
-      {name:"راحة",kind:"راحة",items:[
-        ["استشفاء","اليوم","لا تتدرب بقوة على عضلات مرهقة."]
-      ]},
-      {name:"قوة الجسم A",kind:"تدريب",items:[
-        ["إحماء","6–8 دقائق","تدريجي."],
-        ["قرفصاء بوزن الجسم","3 × 10–12","تحكم."],
-        ["ضغط مناسب للمستوى","3 × 6–10","نسخة آمنة."],
-        ["رفع الحوض","3 × 12–15","تحكم."],
-        ["Bird Dog","3 × 8 لكل جانب","ثبات."],
-        ["تهدئة","5 دقائق","تدريجي."]
-      ]},
-      {name:"نشاط اختياري",kind:"استشفاء",items:[
-        ["مشي مريح","20–30 دقيقة","اختياري حسب الطاقة."],
-        ["حركة لطيفة","5 دقائق","من دون إجبار."]
-      ]},
-      {name:"راحة",kind:"راحة",items:[
-        ["راحة كاملة","اليوم","الاستشفاء أهم من زيادة الحمل باستمرار."]
-      ]}
-    ]
-  }
+const $=id=>document.getElementById(id);
+const today=()=>new Date().toISOString().slice(0,10);
+const defaultData=()=>({waterDate:today(),water:0,done:[],history:[],notes:"",favorites:[],level:"beginner"});
+let data;
+try{data=JSON.parse(localStorage.getItem("yf-data"))||defaultData()}catch(e){data=defaultData()}
+if(!Array.isArray(data.done))data.done=[];
+if(!Array.isArray(data.history))data.history=[];
+if(!Array.isArray(data.favorites))data.favorites=[];
+if(data.waterDate!==today()){data.waterDate=today();data.water=0}
+function save(){localStorage.setItem("yf-data",JSON.stringify(data));updateStats()}
+function showTab(id){
+ document.querySelectorAll(".section").forEach(s=>s.classList.toggle("active",s.id===id));
+ document.querySelectorAll(".tab").forEach(b=>b.classList.toggle("active",b.dataset.tab===id));
+ if(id==="progress")updateProgress();
+ if(id==="library")renderLibrary();
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+const plans={
+beginner:[
+{name:"اليوم الأول — جسم كامل",items:[["ضغط على الحائط","الصدر", "2 × 8–10","chest","🤸"],["سكوات بوزن الجسم","الرجل","2 × 8–10","legs","🦵"],["رفع الحوض","المؤخرة","2 × 10","legs","🌉"],["المشي في المكان","لياقة","5 دقائق","cardio","🚶"]]},
+{name:"اليوم الثاني — حركة خفيفة",items:[["مشي مريح","لياقة","10–15 دقيقة","cardio","🚶"],["إطالات خفيفة","مرونة","5 دقائق","core","🧘"]]},
+{name:"اليوم الثالث — جسم كامل",items:[["ضغط على الحائط","الصدر","2 × 8–10","chest","🤸"],["سكوات للكرسي","الرجل","2 × 8–10","legs","🪑"],["بلانك على الركبتين","البطن","2 × 10–15 ثانية","core","💪"]]},
+{name:"باقي الأسبوع",items:[["راحة أو مشي خفيف","استشفاء","حسب راحتك","cardio","🌿"]]}
+],
+intermediate:[
+{name:"اليوم الأول — الجزء العلوي",items:[["ضغط عادي أو مائل","الصدر","3 × 8–12","chest","🤸"],["ضغط كتف خفيف","الكتف","2 × 8–10","chest","🏋️"],["بلانك","البطن","3 × 15–25 ثانية","core","💪"]]},
+{name:"اليوم الثاني — الجزء السفلي",items:[["سكوات","الرجل","3 × 10–12","legs","🦵"],["اندفاع مع دعم","الرجل","2 × 8 لكل جهة","legs","🚶"],["رفع الحوض","المؤخرة","3 × 12","legs","🌉"]]},
+{name:"اليوم الثالث — راحة نشطة",items:[["مشي مريح","لياقة","15–20 دقيقة","cardio","🚶"],["إطالات خفيفة","مرونة","5 دقائق","core","🧘"]]},
+{name:"اليوم الرابع — جسم كامل",items:[["ضغط مائل","الصدر","3 × 8–12","chest","🤸"],["سكوات","الرجل","3 × 10","legs","🦵"],["بيرد دوج","الجذع","2 × 8 لكل جهة","core","🐕"]]}
+],
+bodyweight:[
+{name:"اليوم الأول",items:[["ضغط على الحائط أو سطح ثابت","الصدر","2 × 8–12","chest","🤸"],["سكوات للكرسي","الرجل","2 × 10","legs","🪑"],["بلانك على الركبتين","البطن","2 × 10 ثوانٍ","core","💪"]]},
+{name:"اليوم الثاني",items:[["مشي في المكان","لياقة","5–10 دقائق","cardio","🚶"],["رفع الحوض","المؤخرة","2 × 10","legs","🌉"],["بيرد دوج","الجذع","2 × 6 لكل جهة","core","🐕"]]},
+{name:"اليوم الثالث",items:[["سكوات مريح","الرجل","2 × 8","legs","🦵"],["ضغط حائط","الصدر","2 × 8","chest","🤸"],["مشي خفيف","لياقة","5 دقائق","cardio","🚶"]]}
+]};
+function allItems(){return plans[$("level").value].flatMap((d,di)=>d.items.map((x,i)=>({...x,id:$("level").value+"-"+di+"-"+i,day:d.name})))}
+function renderPlan(){
+ data.level=$("level").value;save();
+ const p=plans[$("level").value];
+ $("plan").innerHTML=p.map((day,di)=>`<article class="day"><div class="dayhead"><strong>${day.name}</strong><span class="pill">${day.items.length} تمارين</span></div><div class="daybody">${day.items.map((x,i)=>{const id=data.level+"-"+di+"-"+i;return `<div class="exercise"><div class="exercise-icon">${x[4]}</div><div class="exercise-info"><strong>${x[0]}</strong><small>${x[1]} · ${x[2]}</small><a target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=${encodeURIComponent(x[0]+" شرح التمرين للمبتدئين")}">▶ شرح التمرين</a></div><input class="check" type="checkbox" aria-label="تم إكمال "+x[0] ${data.done.includes(id)?"checked":""} onchange="toggleDone('${id}',this.checked)"></div>`}).join("")}</div></article>`).join("");
+ updateProgress();
+}
+function toggleDone(id,checked){
+ if(checked){if(!data.done.includes(id))data.done.push(id);data.history.push({id,date:today()})}
+ else{data.done=data.done.filter(x=>x!==id)}
+ save();updateProgress();
+}
+const exercises=[
+["ضغط على الحائط","الصدر","مناسب كبداية لتعلّم حركة الضغط.","chest","🤸"],
+["ضغط مائل","الصدر","استخدم سطحًا ثابتًا وارتفاعًا يناسب قدرتك.","chest","🏋️"],
+["ضغط عادي","الصدر","حافظ على جسمك ثابتًا وتوقف لو ظهر ألم.","chest","💪"],
+["سكوات للكرسي","الرجل","انزل ببطء باتجاه كرسي ثابت.","legs","🪑"],
+["سكوات","الرجل","حافظ على الحركة المريحة للركبة والظهر.","legs","🦵"],
+["اندفاع مع دعم","الرجل","استخدم حائطًا أو كرسيًا ثابتًا للتوازن.","legs","🚶"],
+["رفع الحوض","الرجل","ارفع الحوض بهدوء من وضع الاستلقاء.","legs","🌉"],
+["بيرد دوج","الظهر","مد الذراع والرجل العكسية مع ثبات الجذع.","back","🐕"],
+["سحب لوح الكتف","الظهر","اسحب الكتفين للخلف بلطف دون مبالغة.","back","🧍"],
+["بلانك على الركبتين","البطن","ابدأ بمدة قصيرة مع تنفس طبيعي.","core","💪"],
+["ديد باغ","البطن","حرّك الذراع والرجل العكسية ببطء.","core","🧘"],
+["مشي في المكان","لياقة","اختار سرعة تقدر تتكلم معها براحة.","cardio","🚶"],
+["إطالات خفيفة","لياقة","حركة لطيفة دون ضغط أو ألم.","cardio","🌿"]
 ];
-
-let state = {
-  level: 0,
-  checks: {},
-  history: {},
-  water: {},
-  notes: {},
-  settings: {name:"",weekStart:6},
-  waterGoal: 6
-};
-let toastTimeout = null;
-let timerRemaining = 60;
-let timerEndAt = 0;
-let timerInterval = null;
-let timerRunning = false;
-
-function todayKey(date = new Date()) {
-  const y = date.getFullYear();
-  const m = String(date.getMonth()+1).padStart(2,"0");
-  const d = String(date.getDate()).padStart(2,"0");
-  return `${y}-${m}-${d}`;
+function renderLibrary(){
+ const q=$("exerciseSearch").value.trim().toLowerCase(),f=$("muscleFilter").value;
+ const list=exercises.filter(e=>(f==="all"||e[3]===f)&&e.slice(0,3).join(" ").toLowerCase().includes(q));
+ $("libraryGrid").innerHTML=list.map(e=>`<article class="exercise-card"><div class="row"><span class="emoji">${e[4]}</span><button class="btn secondary" style="padding:6px 9px" onclick="favorite('${e[0].replace(/'/g,"\\'")}')">${data.favorites.includes(e[0])?"★":"☆"}</button></div><h3>${e[0]}</h3><p>${e[2]}</p><a target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=${encodeURIComponent(e[0]+" شرح صحيح")}">▶ فيديو توضيحي</a> · <a target="_blank" rel="noopener" href="https://www.google.com/search?tbm=isch&q=${encodeURIComponent(e[0]+" exercise")}">صور</a></article>`).join("")||'<p class="muted">مفيش نتائج مطابقة.</p>';
 }
-function parseDateKey(key) {
-  const parts = String(key).split("-").map(Number);
-  if(parts.length !== 3 || parts.some(n => !Number.isFinite(n))) return null;
-  const d = new Date(parts[0],parts[1]-1,parts[2]);
-  return Number.isNaN(d.getTime()) ? null : d;
+function favorite(name){data.favorites=data.favorites.includes(name)?data.favorites.filter(x=>x!==name):[...data.favorites,name];save();renderLibrary()}
+function changeWater(n){if(data.waterDate!==today()){data.waterDate=today();data.water=0}data.water=Math.max(0,(data.water||0)+n);save();updateStats()}
+function updateStats(){
+ $("doneCount").textContent=data.history.length;
+ $("waterStat").textContent=data.water||0;
+ $("waterCount").textContent=data.water||0;
+ $("waterBar").style.width=Math.min(100,(data.water||0)/8*100)+"%";
+ const days=new Set(data.history.map(x=>x.date));
+ $("streak").textContent=days.size;
+ $("activeDays").textContent=days.size;
+ $("historyCount").textContent=data.history.length;
 }
-function safeRead(key, fallback) {
-  try {
-    const raw = localStorage.getItem(key);
-    return raw === null ? fallback : JSON.parse(raw);
-  } catch {
-    return fallback;
-  }
+function updateProgress(){
+ const items=allItems(),done=items.filter(x=>data.done.includes(x.id)).length,pct=items.length?Math.round(done/items.length*100):0;
+ $("progressLabel").textContent=pct+"%";$("progressBar").style.width=pct+"%";
+ $("progressText").textContent=`أنجزت ${done} من ${items.length} تمرين في الخطة الحالية.`;
 }
-function saveKey(key, value) {
-  try {
-    localStorage.setItem(key, JSON.stringify(value));
-    return true;
-  } catch {
-    showToast("تعذر الحفظ. مساحة التخزين قد تكون ممتلئة.");
-    return false;
-  }
+function saveNotes(){data.notes=$("notes").value;save();$("noteStatus").textContent=" — تم الحفظ ✓";setTimeout(()=>$("noteStatus").textContent="",1800)}
+let remaining=60,interval=null;
+function showTimer(){const m=Math.floor(remaining/60),s=remaining%60;$("timerDisplay").textContent=String(m).padStart(2,"0")+":"+String(s).padStart(2,"0")}
+function setTimer(n){clearInterval(interval);interval=null;remaining=n;showTimer();$("timerStart").textContent="▶ تشغيل";$("timerMessage").textContent="جاهز لما تبدأ."}
+function toggleTimer(){
+ if(interval){clearInterval(interval);interval=null;$("timerStart").textContent="▶ استكمال";return}
+ $("timerStart").textContent="⏸ إيقاف";
+ interval=setInterval(()=>{remaining--;showTimer();if(remaining<=0){clearInterval(interval);interval=null;$("timerStart").textContent="▶ تشغيل";$("timerMessage").textContent="خلصت الراحة! ابدأ لما تكون جاهز 💜";if(navigator.vibrate)navigator.vibrate(250)}},1000);
 }
-function showToast(message) {
-  const el = $("toast");
-  el.textContent = message;
-  el.classList.remove("hidden");
-  clearTimeout(toastTimeout);
-  toastTimeout = setTimeout(() => el.classList.add("hidden"), 2600);
+function resetTimer(){setTimer(60);$("timerMessage").textContent="تمت إعادة المؤقت."}
+function exportData(){
+ const blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"});
+ const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="youssef-fitness-backup.json";a.click();URL.revokeObjectURL(a.href);
 }
-function escapeHTML(value) {
-  return String(value).replace(/[&<>"']/g, ch => ({
-    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
-  }[ch]));
+function importData(ev){
+ const file=ev.target.files[0];if(!file)return;
+ const reader=new FileReader();
+ reader.onload=()=>{try{const obj=JSON.parse(reader.result);if(!obj||!Array.isArray(obj.done)||!Array.isArray(obj.history))throw Error();data={...defaultData(),...obj};save();$("notes").value=data.notes||"";$("level").value=data.level||"beginner";renderPlan();renderLibrary();alert("تم استيراد النسخة بنجاح.")}catch(e){alert("الملف غير صالح أو ليس نسخة احتياطية من الموقع.")}ev.target.value=""};
+ reader.readAsText(file);
 }
-function todayChecks() {
-  const key = todayKey();
-  if(!state.checks[key] || typeof state.checks[key] !== "object") state.checks[key] = {};
-  return state.checks[key];
+function clearData(){
+ if(!confirm("متأكد إنك عايز تمسح كل البيانات المحفوظة؟"))return;
+ localStorage.removeItem("yf-data");data=defaultData();$("notes").value="";$("level").value="beginner";renderPlan();renderLibrary();save();alert("تم مسح البيانات.");
 }
-function todaysPlan() {
-  const now = new Date();
-  const day = now.getDay();
-  const index = (day + 6) % 7; // Monday-first schedule
-  return PROGRAMS[state.level].days[index];
-}
-function currentPlanKey() {
-  return `${state.level}-${(new Date().getDay()+6)%7}`;
-}
-function saveChecks() {
-  saveKey(STORAGE.checks,state.checks);
-}
-function loadState() {
-  state.level = Number(safeRead(STORAGE.level,0));
-  if(!Number.isInteger(state.level) || state.level < 0 || state.level > 2) state.level = 0;
-
-  const oldChecks = safeRead(STORAGE.checks,{});
-  state.checks = oldChecks && typeof oldChecks === "object" && !Array.isArray(oldChecks) ? oldChecks : {};
-
-  const history = safeRead(STORAGE.history,{});
-  state.history = history && typeof history === "object" && !Array.isArray(history) ? history : {};
-
-  const water = safeRead(STORAGE.water,{});
-  state.water = water && typeof water === "object" && !Array.isArray(water) ? water : {};
-
-  const notes = safeRead(STORAGE.notes,{});
-  state.notes = notes && typeof notes === "object" && !Array.isArray(notes) ? notes : {};
-
-  const settings = safeRead(STORAGE.settings,{});
-  if(settings && typeof settings === "object") {
-    state.settings.name = typeof settings.name === "string" ? settings.name.slice(0,35) : "";
-    state.settings.weekStart = [0,1,6].includes(Number(settings.weekStart)) ? Number(settings.weekStart) : 6;
-  }
-
-  state.waterGoal = Number(safeRead(STORAGE.goal,6));
-  if(!Number.isFinite(state.waterGoal)) state.waterGoal = 6;
-  state.waterGoal = Math.max(1,Math.min(30,Math.round(state.waterGoal)));
-
-  // Keep older progress information if it exists.
-  const oldDays = Number(safeRead(STORAGE.days,0));
-  if(!Object.keys(state.history).length && Number.isFinite(oldDays) && oldDays > 0) {
-    // Historical dates cannot be reconstructed from a counter alone.
-    state.legacyDays = Math.floor(oldDays);
-  } else state.legacyDays = 0;
-}
-function persistAll() {
-  saveKey(STORAGE.level,state.level);
-  saveKey(STORAGE.checks,state.checks);
-  saveKey(STORAGE.history,state.history);
-  saveKey(STORAGE.water,state.water);
-  saveKey(STORAGE.notes,state.notes);
-  saveKey(STORAGE.settings,state.settings);
-  saveKey(STORAGE.goal,state.waterGoal);
-  // Preserve old key names for compatibility with the previous version.
-  saveKey(STORAGE.days,completedDayCount());
-  saveKey(STORAGE.date,todayKey());
-  saveKey(STORAGE.last,Date.now());
-}
-function go(view) {
-  const target = $("view-"+view);
-  if(!target) return;
-  document.querySelectorAll(".view").forEach(el => el.classList.remove("active"));
-  target.classList.add("active");
-  document.querySelectorAll("[data-view]").forEach(el => {
-    el.classList.toggle("active",el.dataset.view === view);
-  });
-  if(view === "progress") renderProgress();
-  if(view === "water") renderWater();
-  window.scrollTo({top:0,behavior:"smooth"});
-}
-function changeLevel(value) {
-  const next = Number(value);
-  if(!Number.isInteger(next) || next < 0 || next > 2) return;
-  if(next === state.level) return;
-  state.level = next;
-  saveKey(STORAGE.level,state.level);
-  renderAll();
-  showToast("تم تغيير مستوى البرنامج.");
-}
-function renderWorkout() {
-  const plan = todaysPlan();
-  const checks = todayChecks();
-  const ids = plan.items.map((_,i)=>`${currentPlanKey()}-${i}`);
-  const completed = ids.filter(id=>checks[id] === true).length;
-  const percent = ids.length ? Math.round(completed / ids.length * 100) : 0;
-  $("levelSelect").value = String(state.level);
-  $("levelBadge").textContent = `LEVEL 0${state.level+1}`;
-  $("workoutTitle").textContent = plan.name;
-  $("workoutSubtitle").textContent = `${DAYS_AR[new Date().getDay()]} · ${plan.items.length} عناصر في خطة اليوم`;
-  $("workoutKind").textContent = plan.kind;
-  $("dayNotice").textContent = plan.kind === "راحة"
-    ? "ده يوم راحة في جدولك. الاستشفاء جزء من التدريب، والنشاط الاختياري يفضل خفيفًا."
-    : plan.kind === "استشفاء"
-      ? "خلي الحركة مريحة وتقدر تتكلم خلالها. تقدر تقلل المدة أو ترتاح."
-      : "ابدأ بإحماء تدريجي. اختَر النسخة المناسبة لقدرتك وخد راحة بين المجموعات.";
-  $("workoutBar").style.width = percent+"%";
-  $("workoutProgressText").textContent = `${percent}% مكتمل · ${completed} من ${ids.length}`;
-  $("exerciseList").innerHTML = plan.items.map((item,i)=>{
-    const id = `${currentPlanKey()}-${i}`;
-    const done = checks[id] === true;
-    return `<div class="exercise">
-      <div class="exercise-top">
-        <input type="checkbox" id="exercise-${i}" ${done?"checked":""}
-          aria-label="تسجيل إنجاز ${escapeHTML(item[0])}"
-          onchange="toggleExercise('${id}',this.checked)">
-        <div style="flex:1;min-width:0">
-          <div class="exercise-title">${i+1}. ${escapeHTML(item[0])}</div>
-          <div class="exercise-meta">
-            <span class="tag">${escapeHTML(item[1])}</span>
-            <span class="tag ${done?"done":""}">${done?"✓ مكتمل":"لم يُسجل بعد"}</span>
-          </div>
-        </div>
-      </div>
-      <p class="exercise-details">${escapeHTML(item[2])}</p>
-    </div>`;
-  }).join("");
-  $("dailyNote").value = state.notes[todayKey()] || "";
-}
-function toggleExercise(id,checked) {
-  const checks = todayChecks();
-  checks[id] = Boolean(checked);
-  saveChecks();
-  updateDashboard();
-  renderWorkout();
-}
-function uncheckAll() {
-  if(!confirm("تمسح علامات تمارين اليوم فقط؟")) return;
-  state.checks[todayKey()] = {};
-  saveChecks();
-  renderAll();
-  showToast("تم إلغاء علامات اليوم.");
-}
-function finishWorkout() {
-  const plan = todaysPlan();
-  const checks = todayChecks();
-  const ids = plan.items.map((_,i)=>`${currentPlanKey()}-${i}`);
-  const done = ids.filter(id=>checks[id] === true).length;
-  if(done !== ids.length) {
-    showToast("كمّل عناصر اليوم أو سجّل ما أنجزته؛ مش لازم تجبر نفسك على إكمالها.");
-    return;
-  }
-  const key = todayKey();
-  state.history[key] = {
-    date:key, level:state.level, plan:plan.name,
-    count:done, total:ids.length, kind:plan.kind,
-    completedAt:new Date().toISOString()
-  };
-  persistAll();
-  renderAll();
-  showToast("تم حفظ إنجاز اليوم بنجاح.");
-}
-function saveNote() {
-  const value = $("dailyNote").value.trim().slice(0,1000);
-  if(value) state.notes[todayKey()] = value;
-  else delete state.notes[todayKey()];
-  saveKey(STORAGE.notes,state.notes);
-  showToast("تم حفظ الملاحظة.");
-}
-function completedDayCount() {
-  return Object.values(state.history).filter(item => item && item.date).length;
-}
-function updateDashboard() {
-  const plan = todaysPlan();
-  const checks = todayChecks();
-  const ids = plan.items.map((_,i)=>`${currentPlanKey()}-${i}`);
-  const done = ids.filter(id=>checks[id] === true).length;
-  const percent = ids.length ? Math.round(done / ids.length * 100) : 0;
-  $("todayPercent").textContent = percent+"%";
-  $("todayBar").style.width = percent+"%";
-  $("todaySub").textContent = percent === 100 ? "اكتملت عناصر اليوم" : "التقدم حسب العلامات المسجلة";
-  $("doneCount").textContent = `${done}/${ids.length}`;
-  $("totalDays").textContent = completedDayCount() + (state.legacyDays || 0);
-  $("waterStat").textContent = Number(state.water[todayKey()] || 0);
-  const greeting = state.settings.name ? `أهلًا ${state.settings.name}، خليك ثابت.` : "ابدأ من مكانك، واتقدم خطوة بخطوة.";
-  $("greeting").textContent = greeting;
-  $("heroText").textContent = "خطة تدريب منظمة، ومتابعة لتقدمك، وراحة كفاية عشان تستمر.";
-  $("summaryLevel").textContent = LEVEL_NAMES[state.level];
-  $("summaryDays").textContent = $("totalDays").textContent;
-  $("summaryWater").textContent = Number(state.water[todayKey()] || 0);
-  $("summaryDate").textContent = new Date().toLocaleDateString("ar-EG");
-}
-function renderProgress() {
-  const today = new Date();
-  const week = [];
-  for(let i=6;i>=0;i--) {
-    const date = new Date(today.getFullYear(),today.getMonth(),today.getDate()-i);
-    const key = todayKey(date);
-    week.push({date,key});
-  }
-  $("weekDays").innerHTML = week.map(({date,key})=>{
-    const record = state.history[key];
-    const checks = state.checks[key] || {};
-    const isToday = key === todayKey();
-    const done = Boolean(record);
-    return `<div class="day ${done?"complete":""} ${isToday?"active":""}" title="${escapeHTML(key)}">
-      ${DAYS_SHORT[date.getDay()]}<b>${date.getDate()}</b>${done?"✓":(isToday?"•":"—")}
-    </div>`;
-  }).join("");
-  const entries = Object.values(state.history)
-    .filter(item=>item && typeof item.date==="string")
-    .sort((a,b)=>b.date.localeCompare(a.date));
-  $("historyCount").textContent = entries.length+" يوم";
-  $("historyList").innerHTML = entries.length ? entries.slice(0,60).map(item=>
-    `<div class="history-item">
-      <div><b>${escapeHTML(item.plan || "تمرين مكتمل")}</b><div class="muted">${escapeHTML(item.date)} · ${escapeHTML(LEVEL_NAMES[item.level] || "مستوى غير محدد")}</div></div>
-      <span class="tag done">${Number(item.count)||0}/${Number(item.total)||0}</span>
-    </div>`
-  ).join("") : `<div class="empty">لسه مفيش أيام مكتملة في السجل. لما تخلص عناصر يومك وتحفظ الإنجاز هتظهر هنا.</div>`;
-}
-function renderWater() {
-  const count = Math.max(0,Math.min(100,Number(state.water[todayKey()]||0)));
-  $("waterCount").textContent = count;
-  $("waterGoal").value = state.waterGoal;
-  $("waterBar").style.width = Math.min(100,Math.round(count/state.waterGoal*100))+"%";
-  $("waterButtons").innerHTML = Array.from({length:state.waterGoal},(_,i)=>
-    `<button type="button" class="${i<count?"filled":""}" aria-label="الكوب ${i+1}" title="الكوب ${i+1}">${i<count?"●":"○"}</button>`
-  ).join("");
-  $("waterButtons").querySelectorAll("button").forEach((button,index)=>{
-    button.addEventListener("click",()=>{
-      state.water[todayKey()] = index+1;
-      saveKey(STORAGE.water,state.water);
-      renderWater();
-      updateDashboard();
-    });
-  });
-}
-function addWater() {
-  state.water[todayKey()] = Math.min(100,Number(state.water[todayKey()]||0)+1);
-  saveKey(STORAGE.water,state.water);
-  renderWater();
-  updateDashboard();
-}
-function removeWater() {
-  state.water[todayKey()] = Math.max(0,Number(state.water[todayKey()]||0)-1);
-  saveKey(STORAGE.water,state.water);
-  renderWater();
-  updateDashboard();
-}
-function saveWaterGoal() {
-  const value = Number($("waterGoal").value);
-  if(!Number.isInteger(value) || value < 1 || value > 30) {
-    showToast("اختار هدفًا بين 1 و30 كوبًا، أو اترك القيمة الافتراضية.");
-    return;
-  }
-  state.waterGoal = value;
-  saveKey(STORAGE.goal,state.waterGoal);
-  renderWater();
-  showToast("تم حفظ هدف المياه.");
-}
-function formatTime(seconds) {
-  const s = Math.max(0,Math.floor(seconds));
-  return `${String(Math.floor(s/60)).padStart(2,"0")}:${String(s%60).padStart(2,"0")}`;
-}
-function updateTimerDisplay() {
-  $("timerDisplay").textContent = formatTime(timerRemaining);
-}
-function setTimer(seconds) {
-  pauseTimer();
-  timerRemaining = Math.max(5,Math.min(600,Number(seconds)||60));
-  $("timerSeconds").value = timerRemaining;
-  updateTimerDisplay();
-  $("timerStatus").textContent = "تم ضبط الوقت";
-}
-function startTimer() {
-  if(timerRunning) return;
-  if(timerRemaining <= 0) {
-    const n = Number($("timerSeconds").value);
-    if(!Number.isFinite(n) || n < 5 || n > 600) {
-      showToast("حدد وقتًا بين 5 و600 ثانية.");
-      return;
-    }
-    timerRemaining = Math.floor(n);
-  }
-  timerRunning = true;
-  timerEndAt = Date.now()+timerRemaining*1000;
-  $("timerStatus").textContent = "المؤقت يعمل";
-  clearInterval(timerInterval);
-  timerInterval = setInterval(()=>{
-    timerRemaining = Math.max(0,Math.ceil((timerEndAt-Date.now())/1000));
-    updateTimerDisplay();
-    if(timerRemaining <= 0) {
-      pauseTimer();
-      $("timerStatus").textContent = "انتهت الراحة — ابدأ فقط لو جاهز";
-      showToast("انتهى مؤقت الراحة.");
-      try {
-        if("vibrate" in navigator) navigator.vibrate(180);
-      } catch {}
-    }
-  },200);
-}
-function pauseTimer() {
-  if(timerRunning) {
-    timerRemaining = Math.max(0,Math.ceil((timerEndAt-Date.now())/1000));
-  }
-  timerRunning = false;
-  clearInterval(timerInterval);
-  timerInterval = null;
-  if($("timerStatus")) $("timerStatus").textContent = "المؤقت متوقف مؤقتًا";
-  updateTimerDisplay();
-}
-function resetTimer() {
-  pauseTimer();
-  const n = Number($("timerSeconds").value);
-  timerRemaining = Number.isFinite(n) && n>=5 && n<=600 ? Math.floor(n) : 60;
-  $("timerSeconds").value = timerRemaining;
-  $("timerStatus").textContent = "جاهز للبدء";
-  updateTimerDisplay();
-}
-function saveSettings() {
-  state.settings.name = $("userName").value.trim().slice(0,35);
-  state.settings.weekStart = Number($("weekStart").value);
-  if(![0,1,6].includes(state.settings.weekStart)) state.settings.weekStart = 6;
-  saveKey(STORAGE.settings,state.settings);
-  renderAll();
-  showToast("تم حفظ الإعدادات.");
-}
-function exportData() {
-  const payload = {
-    app:"YOUSSEF FITNESS",
-    schemaVersion:2,
-    exportedAt:new Date().toISOString(),
-    level:state.level,
-    checks:state.checks,
-    history:state.history,
-    water:state.water,
-    notes:state.notes,
-    settings:state.settings,
-    waterGoal:state.waterGoal,
-    legacyDays:state.legacyDays || 0
-  };
-  const blob = new Blob([JSON.stringify(payload,null,2)],{type:"application/json"});
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = `youssef-fitness-${todayKey()}.json`;
-  document.body.appendChild(a);
-  a.click();
-  a.remove();
-  setTimeout(()=>URL.revokeObjectURL(url),1000);
-  showToast("بدأ تصدير النسخة الاحتياطية.");
-}
-function importData() {
-  const input = $("importFile");
-  const file = input.files && input.files[0];
-  if(!file) {
-    showToast("اختار ملف JSON الأول.");
-    return;
-  }
-  if(file.size > 2*1024*1024) {
-    showToast("الملف كبير جدًا للاستيراد.");
-    return;
-  }
-  const reader = new FileReader();
-  reader.onload = () => {
-    try {
-      const data = JSON.parse(String(reader.result||""));
-      if(!data || typeof data!=="object" || data.app!=="YOUSSEF FITNESS") {
-        throw new Error("invalid file");
-      }
-      if(!confirm("استيراد النسخة سيستبدل البيانات الحالية. هل تريد المتابعة؟")) return;
-      const objectOrEmpty = value => value && typeof value==="object" && !Array.isArray(value) ? value : {};
-      state.level = Number.isInteger(data.level) && data.level>=0 && data.level<=2 ? data.level : 0;
-      state.checks = objectOrEmpty(data.checks);
-      state.history = objectOrEmpty(data.history);
-      state.water = objectOrEmpty(data.water);
-      state.notes = objectOrEmpty(data.notes);
-      state.settings = {
-        name:typeof data.settings?.name==="string" ? data.settings.name.slice(0,35) : "",
-        weekStart:[0,1,6].includes(Number(data.settings?.weekStart)) ? Number(data.settings.weekStart) : 6
-      };
-      state.waterGoal = Math.max(1,Math.min(30,Math.round(Number(data.waterGoal)||6)));
-      state.legacyDays = Math.max(0,Math.floor(Number(data.legacyDays)||0));
-      persistAll();
-      renderAll();
-      input.value = "";
-      showToast("تم استيراد البيانات.");
-    } catch {
-      showToast("ملف النسخة الاحتياطية غير صالح أو غير مدعوم.");
-    }
-  };
-  reader.onerror = () => showToast("تعذر قراءة الملف.");
-  reader.readAsText(file);
-}
-function clearData() {
-  if(!confirm("متأكد إنك عايز تمسح سجل التمارين والمياه والملاحظات والإعدادات؟ صدّر نسخة احتياطية الأول لو محتاجها.")) return;
-  Object.values(STORAGE).forEach(key=>{
-    try { localStorage.removeItem(key); } catch {}
-  });
-  state = {
-    level:0,checks:{},history:{},water:{},notes:{},
-    settings:{name:"",weekStart:6},waterGoal:6,legacyDays:0
-  };
-  renderAll();
-  showToast("تم مسح بيانات التطبيق المحلية.");
-}
-function renderAll() {
-  $("userName").value = state.settings.name;
-  $("weekStart").value = String(state.settings.weekStart);
-  renderWorkout();
-  renderProgress();
-  renderWater();
-  updateDashboard();
-}
-function init() {
-  loadState();
-  renderAll();
-  updateTimerDisplay();
-  // Do not count opening the app as a completed workout.
-  window.addEventListener("storage",event=>{
-    if(Object.values(STORAGE).includes(event.key)) {
-      loadState();
-      renderAll();
-    }
-  });
-}
-init();
+$("year").textContent=new Date().getFullYear();
+$("level").value=data.level||"beginner";
+$("notes").value=data.notes||"";
+renderPlan();renderLibrary();updateStats();showTimer();
 </script>
 </body>
 </html>
