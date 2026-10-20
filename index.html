@@ -2,331 +2,76 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#090711">
-<title>YOUSSEF FITNESS | لياقتك تبدأ هنا</title>
+<meta name="description" content="YOUSSEF FITNESS - خطتك المنزلية للياقة والقوة العامة">
+<title>YOUSSEF FITNESS | Fitness System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#090711;--panel:#151122;--panel2:#1c1630;--purple:#8b5cf6;--pink:#c084fc;--text:#f7f3ff;--muted:#aaa1bd;--border:#302541;--green:#4ade80}
+:root{
+ --bg:#090711;--surface:#12101c;--surface2:#191426;--surface3:#211832;
+ --purple:#9b6dff;--purple2:#7441db;--light:#d7c3ff;
+ --text:#f6f2ff;--muted:#aaa1bd;--border:#302640;
+ --green:#75d9ad;--red:#ff8296;--radius:18px;
+}
 *{box-sizing:border-box}
-body{margin:0;background:radial-gradient(ellipse at top,#21123d 0%,var(--bg) 48%);color:var(--text);font-family:Arial,Tahoma,sans-serif;min-height:100vh}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"Cairo",Tahoma,Arial,sans-serif;font-size:14px;line-height:1.8}
 button,input,select,textarea{font:inherit}
 button{cursor:pointer}
-header{padding:22px 16px 12px;max-width:1000px;margin:auto}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--light);outline-offset:3px}
+a{color:var(--light)}
+svg{display:block;flex-shrink:0}
+button svg{width:19px;height:19px}
+.shell{max-width:1120px;margin:auto;padding:0 18px 100px}
+header{max-width:1120px;margin:auto;padding:22px 18px 15px;display:flex;align-items:center;justify-content:space-between;gap:12px}
 .brand{display:flex;align-items:center;gap:12px}
-.logo{width:48px;height:48px;border-radius:15px;background:linear-gradient(135deg,#a855f7,#6d28d9);display:grid;place-items:center;font-size:25px;box-shadow:0 0 25px #8b5cf644}
-h1{font-size:20px;margin:0;letter-spacing:1px}
-header p{margin:6px 0;color:var(--muted);font-size:13px}
-main{max-width:1000px;margin:auto;padding:10px 14px 100px}
-.hero{border:1px solid #553b79;border-radius:24px;padding:25px 20px;background:linear-gradient(120deg,#281344,#171025 65%,#251039);position:relative;overflow:hidden}
-.hero:after{content:"💪";position:absolute;left:10px;bottom:-22px;font-size:95px;opacity:.12}
-.eyebrow{color:#d8b4fe;font-size:12px;font-weight:bold}
-.hero h2{font-size:27px;margin:12px 0}
-.hero p{color:#d0c4e2;line-height:1.8;font-size:14px;max-width:520px}
-.btn{border:0;border-radius:12px;padding:12px 16px;background:linear-gradient(135deg,#a855f7,#7c3aed);color:white;font-weight:bold}
-.btn.secondary{background:#2a203b;border:1px solid var(--border)}
-.btn.danger{background:#4b202b}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0}
-.stat,.card{background:var(--panel);border:1px solid var(--border);border-radius:17px;padding:15px}
-.stat strong{display:block;font-size:24px;color:#d8b4fe;margin-bottom:6px}
-.stat span{color:var(--muted);font-size:12px}
-.tabs{display:flex;gap:8px;overflow:auto;padding:8px 0 15px;position:sticky;top:0;background:#090711ee;z-index:5}
-.tab{white-space:nowrap;padding:11px 15px;border-radius:12px;border:1px solid var(--border);background:var(--panel);color:var(--muted)}
-.tab.active{background:#382052;color:white;border-color:#9b5de5}
+.brand-mark{width:48px;height:48px;border-radius:15px;display:grid;place-items:center;background:linear-gradient(145deg,#b18aff,#6333c9);box-shadow:0 8px 30px #7c3aed33;color:white}
+.brand-mark svg{width:28px;height:28px}
+.brand h1{font-size:17px;line-height:1.5;letter-spacing:.4px;font-weight:900;margin:0}
+.brand p{margin:2px 0 0;color:var(--muted);font-size:11px}
+.header-status{font-size:11px;color:var(--green);display:flex;align-items:center;gap:6px}
+.status-dot{width:7px;height:7px;border-radius:50%;background:var(--green)}
+.hero{position:relative;overflow:hidden;padding:28px;border-radius:25px;border:1px solid #4a346a;background:linear-gradient(115deg,#25153e,#15101f 68%,#211232)}
+.hero:before{content:"";position:absolute;width:230px;height:230px;border-radius:50%;border:1px solid #a779ff20;left:-90px;top:-120px;box-shadow:0 0 0 30px #a779ff08,0 0 0 60px #a779ff05}
+.eyebrow{font-size:11px;letter-spacing:1.8px;color:var(--light);font-weight:800}
+.hero h2{font-size:clamp(24px,4vw,37px);line-height:1.5;margin:12px 0 8px;font-weight:900;max-width:650px}
+.hero p{color:#c0b4d4;max-width:600px;font-size:13px;margin:0 0 20px}
+.hero-content{position:relative;z-index:1}
+.hero-bottom{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.primary,.secondary,.danger,.icon-button{border:1px solid transparent;border-radius:12px;padding:10px 15px;display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:800;transition:transform .15s,border-color .15s}
+.primary{background:linear-gradient(135deg,#a77aff,#7138d5);color:#fff;box-shadow:0 6px 18px #7138d526}
+.secondary{background:var(--surface3);border-color:var(--border);color:var(--text)}
+.danger{background:#361c2a;color:#ffb5c0;border-color:#673047}
+.primary:hover,.secondary:hover,.danger:hover{transform:translateY(-1px)}
+.small{padding:7px 10px;font-size:12px}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:16px 0 18px}
+.stat{border:1px solid var(--border);background:var(--surface);border-radius:16px;padding:16px;min-width:0}
+.stat-top{display:flex;align-items:center;justify-content:space-between;gap:5px}
+.stat-icon{width:35px;height:35px;border-radius:11px;display:grid;place-items:center;background:#2b1d42;color:var(--light)}
+.stat-icon svg{width:19px;height:19px}
+.stat strong{display:block;font-size:25px;font-weight:900;line-height:1.5;margin-top:7px}
+.stat span{color:var(--muted);font-size:11px}
+.nav{display:flex;gap:8px;overflow-x:auto;padding:7px 0 15px;position:sticky;top:0;z-index:10;background:#090711f5;scrollbar-width:thin}
+.nav button{flex-shrink:0;display:flex;align-items:center;gap:7px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:10px 13px;color:var(--muted);font-size:12px;font-weight:700}
+.nav button.active{background:#332148;border-color:#8356c4;color:#fff}
+.nav svg{width:17px;height:17px}
 .section{display:none}
-.section.active{display:block}
-.section-title{font-size:20px;margin:15px 0}
-.muted{color:var(--muted);font-size:13px;line-height:1.7}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.field{display:flex;flex-direction:column;gap:8px;margin:12px 0}
-label{font-size:13px;color:#d6c9e7}
-input,select,textarea{width:100%;background:#0e0a18;border:1px solid var(--border);border-radius:11px;color:white;padding:12px;outline:none}
+.section.active{display:block;animation:appear .22s ease}
+@keyframes appear{from{opacity:.45;transform:translateY(4px)}to{opacity:1;transform:none}}
+.section-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:16px 0}
+.section-heading h2{margin:0;font-size:21px;font-weight:900}
+.section-heading p{margin:3px 0 0;color:var(--muted);font-size:12px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:17px}
+.card h3{font-size:15px;margin:0 0 8px}
+.muted{color:var(--muted);font-size:12px;line-height:2}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.field{display:flex;flex-direction:column;gap:7px;margin:12px 0}
+label{font-size:12px;color:#d5c9e8;font-weight:700}
+input,select,textarea{width:100%;background:#0c0a14;border:1px solid var(--border);border-radius:11px;padding:11px 12px;color:var(--text);outline:none}
 input:focus,select:focus,textarea:focus{border-color:var(--purple)}
-textarea{min-height:100px;resize:vertical}
+textarea{resize:vertical;min-height:100px}
 .row{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
-.pill{display:inline-block;padding:5px 9px;border-radius:20px;background:#302044;color:#d8b4fe;font-size:11px}
-.day{margin:12px 0;background:var(--panel);border:1px solid var(--border);border-radius:16px;overflow:hidden}
-.dayhead{padding:14px;background:var(--panel2);display:flex;justify-content:space-between;align-items:center;gap:8px}
-.daybody{padding:13px}
-.exercise{display:flex;align-items:center;gap:10px;padding:11px 0;border-bottom:1px solid #302541}
-.exercise:last-child{border-bottom:0}
-.exercise-icon{width:44px;height:44px;display:grid;place-items:center;background:#2b1b41;border-radius:12px;font-size:24px;flex-shrink:0}
-.exercise-info{flex:1;min-width:0}
-.exercise-info strong{font-size:14px}
-.exercise-info small{display:block;color:var(--muted);margin-top:5px;font-size:12px}
-.check{width:21px;height:21px;accent-color:#a855f7;flex-shrink:0}
-.exercise a{color:#d8b4fe;font-size:12px;text-decoration:none}
-.progress{height:8px;background:#302541;border-radius:10px;overflow:hidden;margin:12px 0}
-.progress div{height:100%;background:linear-gradient(90deg,#7c3aed,#d8b4fe);width:0%;transition:.2s}
-.water-cup{font-size:45px;text-align:center;margin:8px}
-.water-number{text-align:center;font-size:34px;font-weight:bold;color:#d8b4fe}
-.big-timer{text-align:center;font-size:56px;font-weight:bold;color:#d8b4fe;margin:25px 0;font-variant-numeric:tabular-nums}
-.timer-buttons{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
-.exercise-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-.exercise-card{background:var(--panel);border:1px solid var(--border);border-radius:15px;padding:13px}
-.exercise-card .emoji{font-size:34px}
-.exercise-card h3{font-size:15px;margin:8px 0}
-.exercise-card p{font-size:12px;color:var(--muted);line-height:1.7}
-.exercise-card a{color:#d8b4fe;text-decoration:none;font-size:12px}
-footer{text-align:center;color:#736b85;padding:25px 10px;font-size:12px}
-.notice{background:#201733;border:1px solid #493064;border-radius:12px;padding:12px;font-size:13px;line-height:1.8;color:#d8c9ed}
-@media(min-width:700px){.hero{padding:35px}.hero h2{font-size:34px}.stats{grid-template-columns:repeat(3,1fr)}.exercise-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media(max-width:420px){.stats{gap:7px}.stat{padding:11px}.stat strong{font-size:20px}.hero h2{font-size:23px}.grid{grid-template-columns:1fr}.big-timer{font-size:48px}}
-</style>
-</head>
-<body>
-<header>
-  <div class="brand">
-    <div class="logo">🏋️</div>
-    <div>
-      <h1>YOUSSEF FITNESS</h1>
-      <p>قوتك بتبدأ من قرارك</p>
-    </div>
-  </div>
-</header>
-
-<main>
-<section class="hero">
-  <span class="eyebrow">YOUR FITNESS JOURNEY</span>
-  <h2>ابني قوتك، خطوة بخطوة 🔥</h2>
-  <p>نظّم تمارينك، تابع تقدمك، وسجّل شرب المياه. مش مطلوب تكون مثالي؛ المطلوب تستمر وتدي جسمك الراحة اللي يستحقها.</p>
-  <button class="btn" onclick="showTab('workout')">ابدأ تمرينك ←</button>
-</section>
-
-<div class="stats">
-  <div class="stat"><strong id="doneCount">0</strong><span>تمرين مكتمل</span></div>
-  <div class="stat"><strong id="waterStat">0</strong><span>كوب مياه اليوم</span></div>
-  <div class="stat"><strong id="streak">0</strong><span>يوم سجّلت فيه نشاط</span></div>
-</div>
-
-<nav class="tabs">
-  <button class="tab active" data-tab="workout" onclick="showTab('workout')">💪 التمارين</button>
-  <button class="tab" data-tab="library" onclick="showTab('library')">📚 مكتبة التمارين</button>
-  <button class="tab" data-tab="progress" onclick="showTab('progress')">📊 تقدمي</button>
-  <button class="tab" data-tab="water" onclick="showTab('water')">💧 المياه</button>
-  <button class="tab" data-tab="timer" onclick="showTab('timer')">⏱️ المؤقت</button>
-  <button class="tab" data-tab="settings" onclick="showTab('settings')">⚙️ الإعدادات</button>
-</nav>
-
-<section id="workout" class="section active">
-  <h2 class="section-title">خطة التمرين 💪</h2>
-  <div class="card">
-    <div class="field">
-      <label for="level">اختار مستوى مناسب ليك</label>
-      <select id="level" onchange="renderPlan()">
-        <option value="beginner">مبتدئ — بداية هادئة</option>
-        <option value="intermediate">متوسط — لو متعود على التمرين</option>
-        <option value="bodyweight">تمارين وزن الجسم</option>
-      </select>
-    </div>
-    <p class="muted">الخطة اقتراح عام. ابدأ بهدوء، وقلّل التكرارات أو خُد راحة لو التمرين صعب. الألم الحاد معناه توقف.</p>
-  </div>
-  <div id="plan"></div>
-  <div class="card">
-    <h3>📝 ملاحظاتك</h3>
-    <textarea id="notes" placeholder="اكتب ملاحظاتك عن التمرين أو هدفك..."></textarea>
-    <button class="btn" onclick="saveNotes()">حفظ الملاحظات</button>
-    <span id="noteStatus" class="muted"></span>
-  </div>
-</section>
-
-<section id="library" class="section">
-  <h2 class="section-title">مكتبة التمارين 📚</h2>
-  <p class="muted">ابحث عن تمرين وافتح فيديوهات توضيحية له. الروابط بتفتح نتائج البحث، مش فيديوهات مدمجة في الموقع.</p>
-  <div class="field"><label for="exerciseSearch">ابحث عن تمرين</label><input id="exerciseSearch" placeholder="مثال: ضغط، سكوات..." oninput="renderLibrary()"></div>
-  <div class="field"><label for="muscleFilter">نوع التمرين</label>
-    <select id="muscleFilter" onchange="renderLibrary()">
-      <option value="all">كل التمارين</option><option value="chest">الصدر</option><option value="legs">الرجل</option><option value="back">الظهر</option><option value="core">البطن</option><option value="cardio">اللياقة</option>
-    </select>
-  </div>
-  <div id="libraryGrid" class="exercise-grid"></div>
-</section>
-
-<section id="progress" class="section">
-  <h2 class="section-title">تقدمك 📊</h2>
-  <div class="card">
-    <div class="row"><strong>إنجاز التمارين المعروضة</strong><span id="progressLabel" class="pill">0%</span></div>
-    <div class="progress"><div id="progressBar"></div></div>
-    <p class="muted" id="progressText">ابدأ بتسجيل التمارين عشان تتابع تقدمك.</p>
-  </div>
-  <div class="card" style="margin-top:12px">
-    <h3>سجل نشاطك</h3>
-    <p class="muted">عدد التمارين المكتملة المسجّل على الجهاز: <strong id="historyCount">0</strong></p>
-    <p class="muted">عدد الأيام المختلفة اللي سجّلت فيها إنجاز: <strong id="activeDays">0</strong></p>
-  </div>
-  <div class="notice" style="margin-top:12px">الأرقام دي مبنية على تسجيلك داخل الموقع، مش قياسات طبية أو تقدير لحرق السعرات.</div>
-</section>
-
-<section id="water" class="section">
-  <h2 class="section-title">متابعة المياه 💧</h2>
-  <div class="card">
-    <div class="water-cup">💧</div>
-    <div class="water-number"><span id="waterCount">0</span> كوب</div>
-    <p class="muted" style="text-align:center">سجّل كل كوب تشربه. احتياج المياه بيختلف حسب الجو والنشاط والجسم.</p>
-    <div class="progress"><div id="waterBar"></div></div>
-    <div class="row" style="justify-content:center;margin-top:18px">
-      <button class="btn" onclick="changeWater(1)">＋ إضافة كوب</button>
-      <button class="btn secondary" onclick="changeWater(-1)">− إزالة كوب</button>
-    </div>
-    <p class="muted" style="text-align:center">تسجيل اليوم بيتجدد تلقائيًا مع بداية يوم جديد.</p>
-  </div>
-</section>
-
-<section id="timer" class="section">
-  <h2 class="section-title">مؤقت التمرين ⏱️</h2>
-  <div class="card">
-    <p class="muted" style="text-align:center">اختار مدة الراحة بين الجولات.</p>
-    <div class="row">
-      <button class="btn secondary" onclick="setTimer(30)">30 ثانية</button>
-      <button class="btn secondary" onclick="setTimer(60)">60 ثانية</button>
-      <button class="btn secondary" onclick="setTimer(90)">90 ثانية</button>
-    </div>
-    <div class="big-timer" id="timerDisplay">01:00</div>
-    <div class="timer-buttons">
-      <button class="btn" id="timerStart" onclick="toggleTimer()">▶ تشغيل</button>
-      <button class="btn secondary" onclick="resetTimer()">↺ إعادة</button>
-    </div>
-    <p id="timerMessage" class="muted" style="text-align:center">خد راحتك، ومش لازم تستعجل.</p>
-  </div>
-</section>
-
-<section id="settings" class="section">
-  <h2 class="section-title">الإعدادات ⚙️</h2>
-  <div class="card">
-    <h3>حفظ بياناتك</h3>
-    <p class="muted">بياناتك محفوظة محليًا في المتصفح على الجهاز ده. لو مسحت بيانات المتصفح ممكن تفقدها.</p>
-    <div class="grid">
-      <button class="btn" onclick="exportData()">📤 تصدير نسخة احتياطية</button>
-      <button class="btn secondary" onclick="document.getElementById('importFile').click()">📥 استيراد نسخة</button>
-    </div>
-    <input type="file" id="importFile" accept=".json,application/json" style="display:none" onchange="importData(event)">
-  </div>
-  <div class="card" style="margin-top:12px">
-    <h3>إعادة ضبط البيانات</h3>
-    <p class="muted">احذف بيانات الموقع المحفوظة على الجهاز. الإجراء ده لا يمكن التراجع عنه إلا لو عندك نسخة احتياطية.</p>
-    <button class="btn danger" onclick="clearData()">مسح البيانات المحفوظة</button>
-  </div>
-  <div class="card" style="margin-top:12px">
-    <h3>عن الموقع</h3>
-    <p class="muted">YOUSSEF FITNESS — أداة بسيطة لتنظيم التمرين وتسجيل العادات. مش بديل عن طبيب أو مدرب مؤهل.</p>
-  </div>
-</section>
-
-<footer>YOUSSEF FITNESS © <span id="year"></span><br>استمر على قدّك، والتطور بييجي مع الوقت 💜</footer>
-</main>
-
-<script>
-const $=id=>document.getElementById(id);
-const today=()=>new Date().toISOString().slice(0,10);
-const defaultData=()=>({waterDate:today(),water:0,done:[],history:[],notes:"",favorites:[],level:"beginner"});
-let data;
-try{data=JSON.parse(localStorage.getItem("yf-data"))||defaultData()}catch(e){data=defaultData()}
-if(!Array.isArray(data.done))data.done=[];
-if(!Array.isArray(data.history))data.history=[];
-if(!Array.isArray(data.favorites))data.favorites=[];
-if(data.waterDate!==today()){data.waterDate=today();data.water=0}
-function save(){localStorage.setItem("yf-data",JSON.stringify(data));updateStats()}
-function showTab(id){
- document.querySelectorAll(".section").forEach(s=>s.classList.toggle("active",s.id===id));
- document.querySelectorAll(".tab").forEach(b=>b.classList.toggle("active",b.dataset.tab===id));
- if(id==="progress")updateProgress();
- if(id==="library")renderLibrary();
- window.scrollTo({top:0,behavior:"smooth"});
-}
-const plans={
-beginner:[
-{name:"اليوم الأول — جسم كامل",items:[["ضغط على الحائط","الصدر", "2 × 8–10","chest","🤸"],["سكوات بوزن الجسم","الرجل","2 × 8–10","legs","🦵"],["رفع الحوض","المؤخرة","2 × 10","legs","🌉"],["المشي في المكان","لياقة","5 دقائق","cardio","🚶"]]},
-{name:"اليوم الثاني — حركة خفيفة",items:[["مشي مريح","لياقة","10–15 دقيقة","cardio","🚶"],["إطالات خفيفة","مرونة","5 دقائق","core","🧘"]]},
-{name:"اليوم الثالث — جسم كامل",items:[["ضغط على الحائط","الصدر","2 × 8–10","chest","🤸"],["سكوات للكرسي","الرجل","2 × 8–10","legs","🪑"],["بلانك على الركبتين","البطن","2 × 10–15 ثانية","core","💪"]]},
-{name:"باقي الأسبوع",items:[["راحة أو مشي خفيف","استشفاء","حسب راحتك","cardio","🌿"]]}
-],
-intermediate:[
-{name:"اليوم الأول — الجزء العلوي",items:[["ضغط عادي أو مائل","الصدر","3 × 8–12","chest","🤸"],["ضغط كتف خفيف","الكتف","2 × 8–10","chest","🏋️"],["بلانك","البطن","3 × 15–25 ثانية","core","💪"]]},
-{name:"اليوم الثاني — الجزء السفلي",items:[["سكوات","الرجل","3 × 10–12","legs","🦵"],["اندفاع مع دعم","الرجل","2 × 8 لكل جهة","legs","🚶"],["رفع الحوض","المؤخرة","3 × 12","legs","🌉"]]},
-{name:"اليوم الثالث — راحة نشطة",items:[["مشي مريح","لياقة","15–20 دقيقة","cardio","🚶"],["إطالات خفيفة","مرونة","5 دقائق","core","🧘"]]},
-{name:"اليوم الرابع — جسم كامل",items:[["ضغط مائل","الصدر","3 × 8–12","chest","🤸"],["سكوات","الرجل","3 × 10","legs","🦵"],["بيرد دوج","الجذع","2 × 8 لكل جهة","core","🐕"]]}
-],
-bodyweight:[
-{name:"اليوم الأول",items:[["ضغط على الحائط أو سطح ثابت","الصدر","2 × 8–12","chest","🤸"],["سكوات للكرسي","الرجل","2 × 10","legs","🪑"],["بلانك على الركبتين","البطن","2 × 10 ثوانٍ","core","💪"]]},
-{name:"اليوم الثاني",items:[["مشي في المكان","لياقة","5–10 دقائق","cardio","🚶"],["رفع الحوض","المؤخرة","2 × 10","legs","🌉"],["بيرد دوج","الجذع","2 × 6 لكل جهة","core","🐕"]]},
-{name:"اليوم الثالث",items:[["سكوات مريح","الرجل","2 × 8","legs","🦵"],["ضغط حائط","الصدر","2 × 8","chest","🤸"],["مشي خفيف","لياقة","5 دقائق","cardio","🚶"]]}
-]};
-function allItems(){return plans[$("level").value].flatMap((d,di)=>d.items.map((x,i)=>({...x,id:$("level").value+"-"+di+"-"+i,day:d.name})))}
-function renderPlan(){
- data.level=$("level").value;save();
- const p=plans[$("level").value];
- $("plan").innerHTML=p.map((day,di)=>`<article class="day"><div class="dayhead"><strong>${day.name}</strong><span class="pill">${day.items.length} تمارين</span></div><div class="daybody">${day.items.map((x,i)=>{const id=data.level+"-"+di+"-"+i;return `<div class="exercise"><div class="exercise-icon">${x[4]}</div><div class="exercise-info"><strong>${x[0]}</strong><small>${x[1]} · ${x[2]}</small><a target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=${encodeURIComponent(x[0]+" شرح التمرين للمبتدئين")}">▶ شرح التمرين</a></div><input class="check" type="checkbox" aria-label="تم إكمال "+x[0] ${data.done.includes(id)?"checked":""} onchange="toggleDone('${id}',this.checked)"></div>`}).join("")}</div></article>`).join("");
- updateProgress();
-}
-function toggleDone(id,checked){
- if(checked){if(!data.done.includes(id))data.done.push(id);data.history.push({id,date:today()})}
- else{data.done=data.done.filter(x=>x!==id)}
- save();updateProgress();
-}
-const exercises=[
-["ضغط على الحائط","الصدر","مناسب كبداية لتعلّم حركة الضغط.","chest","🤸"],
-["ضغط مائل","الصدر","استخدم سطحًا ثابتًا وارتفاعًا يناسب قدرتك.","chest","🏋️"],
-["ضغط عادي","الصدر","حافظ على جسمك ثابتًا وتوقف لو ظهر ألم.","chest","💪"],
-["سكوات للكرسي","الرجل","انزل ببطء باتجاه كرسي ثابت.","legs","🪑"],
-["سكوات","الرجل","حافظ على الحركة المريحة للركبة والظهر.","legs","🦵"],
-["اندفاع مع دعم","الرجل","استخدم حائطًا أو كرسيًا ثابتًا للتوازن.","legs","🚶"],
-["رفع الحوض","الرجل","ارفع الحوض بهدوء من وضع الاستلقاء.","legs","🌉"],
-["بيرد دوج","الظهر","مد الذراع والرجل العكسية مع ثبات الجذع.","back","🐕"],
-["سحب لوح الكتف","الظهر","اسحب الكتفين للخلف بلطف دون مبالغة.","back","🧍"],
-["بلانك على الركبتين","البطن","ابدأ بمدة قصيرة مع تنفس طبيعي.","core","💪"],
-["ديد باغ","البطن","حرّك الذراع والرجل العكسية ببطء.","core","🧘"],
-["مشي في المكان","لياقة","اختار سرعة تقدر تتكلم معها براحة.","cardio","🚶"],
-["إطالات خفيفة","لياقة","حركة لطيفة دون ضغط أو ألم.","cardio","🌿"]
-];
-function renderLibrary(){
- const q=$("exerciseSearch").value.trim().toLowerCase(),f=$("muscleFilter").value;
- const list=exercises.filter(e=>(f==="all"||e[3]===f)&&e.slice(0,3).join(" ").toLowerCase().includes(q));
- $("libraryGrid").innerHTML=list.map(e=>`<article class="exercise-card"><div class="row"><span class="emoji">${e[4]}</span><button class="btn secondary" style="padding:6px 9px" onclick="favorite('${e[0].replace(/'/g,"\\'")}')">${data.favorites.includes(e[0])?"★":"☆"}</button></div><h3>${e[0]}</h3><p>${e[2]}</p><a target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=${encodeURIComponent(e[0]+" شرح صحيح")}">▶ فيديو توضيحي</a> · <a target="_blank" rel="noopener" href="https://www.google.com/search?tbm=isch&q=${encodeURIComponent(e[0]+" exercise")}">صور</a></article>`).join("")||'<p class="muted">مفيش نتائج مطابقة.</p>';
-}
-function favorite(name){data.favorites=data.favorites.includes(name)?data.favorites.filter(x=>x!==name):[...data.favorites,name];save();renderLibrary()}
-function changeWater(n){if(data.waterDate!==today()){data.waterDate=today();data.water=0}data.water=Math.max(0,(data.water||0)+n);save();updateStats()}
-function updateStats(){
- $("doneCount").textContent=data.history.length;
- $("waterStat").textContent=data.water||0;
- $("waterCount").textContent=data.water||0;
- $("waterBar").style.width=Math.min(100,(data.water||0)/8*100)+"%";
- const days=new Set(data.history.map(x=>x.date));
- $("streak").textContent=days.size;
- $("activeDays").textContent=days.size;
- $("historyCount").textContent=data.history.length;
-}
-function updateProgress(){
- const items=allItems(),done=items.filter(x=>data.done.includes(x.id)).length,pct=items.length?Math.round(done/items.length*100):0;
- $("progressLabel").textContent=pct+"%";$("progressBar").style.width=pct+"%";
- $("progressText").textContent=`أنجزت ${done} من ${items.length} تمرين في الخطة الحالية.`;
-}
-function saveNotes(){data.notes=$("notes").value;save();$("noteStatus").textContent=" — تم الحفظ ✓";setTimeout(()=>$("noteStatus").textContent="",1800)}
-let remaining=60,interval=null;
-function showTimer(){const m=Math.floor(remaining/60),s=remaining%60;$("timerDisplay").textContent=String(m).padStart(2,"0")+":"+String(s).padStart(2,"0")}
-function setTimer(n){clearInterval(interval);interval=null;remaining=n;showTimer();$("timerStart").textContent="▶ تشغيل";$("timerMessage").textContent="جاهز لما تبدأ."}
-function toggleTimer(){
- if(interval){clearInterval(interval);interval=null;$("timerStart").textContent="▶ استكمال";return}
- $("timerStart").textContent="⏸ إيقاف";
- interval=setInterval(()=>{remaining--;showTimer();if(remaining<=0){clearInterval(interval);interval=null;$("timerStart").textContent="▶ تشغيل";$("timerMessage").textContent="خلصت الراحة! ابدأ لما تكون جاهز 💜";if(navigator.vibrate)navigator.vibrate(250)}},1000);
-}
-function resetTimer(){setTimer(60);$("timerMessage").textContent="تمت إعادة المؤقت."}
-function exportData(){
- const blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"});
- const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="youssef-fitness-backup.json";a.click();URL.revokeObjectURL(a.href);
-}
-function importData(ev){
- const file=ev.target.files[0];if(!file)return;
- const reader=new FileReader();
- reader.onload=()=>{try{const obj=JSON.parse(reader.result);if(!obj||!Array.isArray(obj.done)||!Array.isArray(obj.history))throw Error();data={...defaultData(),...obj};save();$("notes").value=data.notes||"";$("level").value=data.level||"beginner";renderPlan();renderLibrary();alert("تم استيراد النسخة بنجاح.")}catch(e){alert("الملف غير صالح أو ليس نسخة احتياطية من الموقع.")}ev.target.value=""};
- reader.readAsText(file);
-}
-function clearData(){
- if(!confirm("متأكد إنك عايز تمسح كل البيانات المحفوظة؟"))return;
- localStorage.removeItem("yf-data");data=defaultData();$("notes").value="";$("level").value="beginner";renderPlan();renderLibrary();save();alert("تم مسح البيانات.");
-}
-$("year").textContent=new Date().getFullYear();
-$("level").value=data.level||"beginner";
-$("notes").value=data.notes||"";
-renderPlan();renderLibrary();updateStats();showTimer();
-</script>
-</body>
-</html>
+.badge{display:inline-flex;align-items:center;padding:4px 9px;border-radius:20px;border:1px solid #493365;background:#251b35;color:var(--light);font-size:10px;font
