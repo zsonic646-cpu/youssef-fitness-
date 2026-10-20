@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#090914">
+<title>YOUSSEF FITNESS</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#090914;color:#f5f3ff;font-family:Arial,sans-serif;padding:20px}
+header{text-align:center;padding:20px 0}
+h1{font-size:32px;letter-spacing:2px;color:#a78bfa;margin:5px}
+p{color:#aaa4c2;line-height:1.8}
+.card{background:#171529;border:1px solid #30264c;border-radius:20px;padding:18px;margin:14px 0}
+h2{font-size:19px}
+button{border:0;border-radius:13px;padding:13px;background:#8050ff;color:white;font-size:16px;font-weight:bold;cursor:pointer;width:100%;margin:6px 0}
+button.secondary{background:#29213f}
+.stat{display:flex;justify-content:space-between;gap:10px;text-align:center}
+.stat div{flex:1;background:#211b37;padding:12px;border-radius:13px}
+.num{font-size:24px;color:#b69aff;font-weight:bold}
+.exercise{display:flex;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid #302943}
+.exercise input{width:21px;height:21px;accent-color:#a78bfa}
+small{color:#aaa4c2}
+</style>
+</head>
+<body>
+<header>
+<h1>YOUSSEF</h1>
+<p>رحلتك للقوة تبدأ بخطوة 💜</p>
+</header>
+
+<div class="card">
+<h2>أهلاً يا يوسف 👋</h2>
+<p>مش مطلوب منك تكون قوي من أول يوم. المهم تستمر وتتقدم براحتك.</p>
+<div class="stat">
+<div><div class="num" id="days">0</div><small>أيام تدريب</small></div>
+<div><div class="num" id="done">0/5</div><small>تمارين اليوم</small></div>
+</div>
+</div>
+
+<div class="card">
+<h2 id="levelTitle">المستوى الأول 🟣</h2>
+<p id="levelDesc">بداية هادئة لبناء العادة والقوة.</p>
+<div id="workout"></div>
+<button onclick="saveDay()">حفظ تمرين اليوم ✓</button>
+<button class="secondary" onclick="resetToday()">إعادة تمارين اليوم</button>
+</div>
+
+<div class="card">
+<h2>مستوياتك</h2>
+<button onclick="setLevel(0)">1 — مبتدئ</button>
+<button class="secondary" onclick="setLevel(1)">2 — بناء القوة</button>
+<button class="secondary" onclick="setLevel(2)">3 — تحدي نفسك</button>
+<p>انتقل للمستوى التالي عندما يصبح الحالي مريحاً لعدة حصص.</p>
+</div>
+
+<div class="card">
+<h2>نصائح مهمة ❤️</h2>
+<p>• ابدأ بإحماء خفيف 3–5 دقائق.</p>
+<p>• استرح بين الجولات، ولا تتمرن حتى الإنهاك.</p>
+<p>• الاستطالة تكون بلطف دون إجبار المفاصل.</p>
+<p>• توقف إذا شعرت بألم أو دوخة أو ضيق نفس غير معتاد.</p>
+</div>
+
+<script>
+const plans=[
+[
+["إحماء في المكان","دقيقتان"],
+["استطالة لطيفة","3 دقائق"],
+["ضغط على الحائط أو الركبتين","2 × 5"],
+["بلانك","2 × 10 ثوانٍ"],
+["مشي في المكان","3 دقائق"]
+],
+[
+["إحماء","3 دقائق"],
+["استطالة لطيفة","3 دقائق"],
+["ضغط مناسب لقدرتك","3 × 8"],
+["بلانك","3 × 20 ثانية"],
+["سكوات بوزن الجسم","2 × 10"]
+],
+[
+["إحماء","5 دقائق"],
+["استطالة لطيفة","4 دقائق"],
+["ضغط حسب القدرة","3 × 10"],
+["بلانك","3 × 30 ثانية"],
+["سكوات","3 × 12"]
+]];
+let level=Number(localStorage.getItem("yf_level")||0);
+let checked=JSON.parse(localStorage.getItem("yf_checks")||"[]");
+let days=Number(localStorage.getItem("yf_days")||0);
+let lastDay=localStorage.getItem("yf_last")||"";
+const today=()=>new Date().toLocaleDateString("en-CA");
+if(localStorage.getItem("yf_date")!==today()){
+ checked=[];
+ localStorage.setItem("yf_checks","[]");
+ localStorage.setItem("yf_date",today());
+}
+function render(){
+ document.getElementById("levelTitle").textContent=
+ ["المستوى الأول 🟣","المستوى الثاني 💜","المستوى الثالث 🔥"][level];
+ document.getElementById("levelDesc").textContent=
+ ["بداية هادئة لبناء العادة والقوة.","زد التحدي عندما تكون مستعداً.","مستوى أعلى لمن أتقن السابق."][level];
+ document.getElementById("days").textContent=days;
+ const w=document.getElementById("workout");w.innerHTML="";
+ plans[level].forEach((item,i)=>{
+ const label=document.createElement("label");label.className="exercise";
+ const cb=document.createElement("input");cb.type="checkbox";cb.checked=checked.includes(i);
+ cb.onchange=()=>{
+ checked=cb.checked?[...new Set([...checked,i])]:checked.filter(x=>x!==i);
+ localStorage.setItem("yf_checks",JSON.stringify(checked));update();
+ };
+ const name=document.createElement("span");name.textContent=item[0]+" — "+item[1];
+ label.append(cb,name);w.append(label);
+ });
+ update();
+}
+function update(){document.getElementById("done").textContent=checked.length+"/5";}
+function setLevel(n){level=n;localStorage.setItem("yf_level",n);checked=[];localStorage.setItem("yf_checks","[]");render();window.scrollTo(0,0);}
+function saveDay(){
+ if(checked.length<5){alert("كمّل تمارين اليوم أو خذ راحتك وارجع لها لاحقاً 💜");return;}
+ if(lastDay!==today()){days++;lastDay=today();localStorage.setItem("yf_days",days);localStorage.setItem("yf_last",lastDay);}
+ render();alert("عاش يا يوسف! تم حفظ تقدمك اليوم 💜");
+}
+function resetToday(){checked=[];localStorage.setItem("yf_checks","[]");render();}
+render();
+</script>
+</body>
+</html>
