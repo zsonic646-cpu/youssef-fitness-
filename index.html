@@ -3,227 +3,475 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#090914">
-<title>YOUSSEF | Fitness</title>
+<meta name="description" content="YOUSSEF FITNESS — خطط تمارين وتتبع تقدمك وعاداتك اليومية.">
+<title>YOUSSEF FITNESS</title>
 <style>
 :root{
- --bg:#090914;--panel:#141326;--panel2:#1d1933;
- --purple:#8050ff;--light:#bba2ff;--text:#f7f5ff;
- --muted:#a7a1bd;--border:#302943;--green:#8ce0b5
+  --bg:#090914;--panel:#141326;--panel2:#1b1830;
+  --purple:#8050ff;--light:#c4adff;--text:#f7f5ff;
+  --muted:#a7a1bd;--border:#302943;--green:#8ce0b5;
+  --danger:#ff9dba;--radius:21px
 }
 *{box-sizing:border-box}
-body{
- margin:0;background:var(--bg);color:var(--text);
- font-family:"Noto Sans Arabic","Noto Kufi Arabic",Tahoma,Arial,sans-serif;
- line-height:1.8
-}
-button,input{font:inherit}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);
+font-family:system-ui,"Noto Sans Arabic",Tahoma,Arial,sans-serif;line-height:1.8}
+button,input,select{font:inherit}
 button{cursor:pointer}
-.app{max-width:620px;margin:auto;padding:22px 17px 45px}
-.top{display:flex;align-items:center;justify-content:space-between;margin:5px 0 25px}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--light);outline-offset:3px}
+button:disabled{opacity:.45;cursor:not-allowed}
+.app{max-width:760px;margin:auto;padding:20px 16px 105px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:23px}
 .brand{display:flex;align-items:center;gap:11px}
-.logo{
- width:49px;height:49px;border-radius:16px;
- background:linear-gradient(140deg,#9b75ff,#6436dc);
- display:grid;place-items:center;font-size:24px;font-weight:900;
- box-shadow:0 7px 25px #8050ff35
-}
-.brand h1{font-size:20px;letter-spacing:1.5px;margin:0}
-.brand p{margin:0;color:var(--muted);font-size:12px}
-.level-pill{border:1px solid var(--border);padding:6px 11px;
- border-radius:30px;color:var(--light);font-size:12px}
-.hero{
- padding:24px 21px;border-radius:25px;overflow:hidden;
- background:radial-gradient(ellipse at top left,#50309a55,transparent 65%),var(--panel);
- border:1px solid var(--border);margin-bottom:17px
-}
-.eyebrow{font-size:12px;color:var(--light);font-weight:bold}
-.hero h2{font-size:25px;line-height:1.6;margin:7px 0}
-.hero p{font-size:13px;color:var(--muted);margin:0 0 20px}
-.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.stat{background:#ffffff07;border:1px solid #ffffff0a;
- padding:13px;border-radius:17px}
+.logo{width:48px;height:48px;border-radius:16px;display:grid;place-items:center;
+background:linear-gradient(140deg,#a486ff,#6335df);font-size:24px;font-weight:900;
+box-shadow:0 5px 25px #8050ff30}
+.brand h1{font-size:19px;letter-spacing:1px;margin:0}
+.brand p{margin:0;color:var(--muted);font-size:11px}
+.pill{border:1px solid var(--border);border-radius:30px;padding:5px 10px;color:var(--light);font-size:11px;white-space:nowrap}
+.hero{padding:23px 20px;border:1px solid var(--border);border-radius:25px;margin-bottom:18px;
+background:radial-gradient(ellipse at top left,#50309a55,transparent 65%),var(--panel)}
+.eyebrow{font-size:12px;color:var(--light);font-weight:700}
+h2,h3,p{overflow-wrap:anywhere}
+.hero h2{font-size:clamp(23px,5vw,31px);line-height:1.55;margin:7px 0}
+.muted{color:var(--muted)}
+.small{font-size:12px}
+.stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:20px}
+.stat{background:#ffffff07;border:1px solid #ffffff0b;padding:13px;border-radius:16px;min-width:0}
 .stat strong{display:block;font-size:25px;color:var(--light);direction:ltr;text-align:right}
 .stat span{font-size:11px;color:var(--muted)}
-.section-head{display:flex;align-items:center;justify-content:space-between;margin:25px 2px 12px}
+.section-head{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:25px 2px 12px}
 .section-head h2{font-size:17px;margin:0}
-.section-head span{font-size:11px;color:var(--muted)}
-.card{background:var(--panel);border:1px solid var(--border);
- border-radius:22px;padding:18px;margin-bottom:14px}
-.progress-track{height:6px;border-radius:20px;background:#302943;overflow:hidden;margin:12px 0}
+.card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:17px;margin-bottom:13px}
+.row{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.progress-track{height:7px;background:#302943;border-radius:20px;overflow:hidden;margin:12px 0}
 .progress-fill{height:100%;width:0;background:linear-gradient(90deg,#8050ff,#c2aaff);transition:width .2s}
-.exercise{display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid #ffffff0b}
+.exercise{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid #ffffff0d}
 .exercise:last-child{border-bottom:0}
-.exercise input{width:20px;height:20px;accent-color:var(--purple);flex-shrink:0}
-.exercise .name{font-size:13px;font-weight:bold}
-.exercise small{display:block;font-size:11px;color:var(--muted);font-weight:normal}
+.exercise input[type=checkbox]{width:20px;height:20px;accent-color:var(--purple);flex-shrink:0}
+.exercise .name{font-size:13px;font-weight:700;display:block}
+.exercise small{font-size:11px;color:var(--muted);display:block}
 .exercise input:checked+.label .name{color:var(--light)}
-.actions{display:grid;gap:9px;margin-top:17px}
-.btn{width:100%;padding:13px 16px;border:1px solid transparent;
- border-radius:14px;font-weight:bold;font-size:14px;transition:.15s}
-.btn:active{transform:scale(.98)}
-.primary{background:linear-gradient(120deg,#9169ff,#7040ed);color:white;box-shadow:0 5px 18px #8050ff24}
+.actions{display:grid;gap:9px;margin-top:15px}
+.btn{width:100%;padding:12px 15px;border:1px solid transparent;border-radius:14px;
+font-weight:700;font-size:13px;transition:transform .15s,filter .15s}
+.btn:active{transform:scale(.985)}
+.primary{background:linear-gradient(120deg,#9169ff,#7040ed);color:white}
 .secondary{background:#ffffff06;color:var(--text);border-color:var(--border)}
+.danger{background:#ff5b8110;color:var(--danger);border-color:#ff5b8133}
+.btn-sm{width:auto;padding:7px 11px;font-size:12px}
 .levels{display:grid;gap:9px}
-.level-btn{display:flex;justify-content:space-between;align-items:center;
- text-align:right;background:#ffffff04;color:var(--text);
- border:1px solid var(--border);padding:14px;border-radius:15px}
+.level-btn{display:flex;justify-content:space-between;align-items:center;gap:10px;text-align:right;
+background:#ffffff04;color:var(--text);border:1px solid var(--border);padding:13px;border-radius:15px;width:100%}
 .level-btn.active{border-color:var(--purple);background:#8050ff13}
 .level-btn strong{font-size:13px;display:block}
 .level-btn small{color:var(--muted);font-size:11px}
 .level-btn .number{color:var(--light);font-weight:bold;direction:ltr}
-.note{font-size:12px;color:var(--muted);margin:12px 0 0}
-.footer{text-align:center;color:#77718d;font-size:11px;padding:18px}
-.toast{display:none;background:#17372d;color:var(--green);padding:12px;
- border-radius:12px;font-size:13px;margin-bottom:12px}
-@media(min-width:500px){.app{padding-top:30px}.hero{padding:29px}}
+.field{width:100%;background:#0d0c19;color:var(--text);border:1px solid var(--border);
+border-radius:12px;padding:11px 12px;min-width:0}
+.field-label{display:block;font-size:12px;color:var(--muted);margin-bottom:6px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.chip{display:inline-block;background:#8050ff17;color:var(--light);border:1px solid #8050ff35;
+border-radius:30px;padding:3px 9px;font-size:11px}
+.item-card{border:1px solid var(--border);background:#ffffff03;border-radius:14px;padding:12px;margin:9px 0}
+.bar-row{display:flex;align-items:center;gap:10px;margin:12px 0}
+.bar-day{width:35px;font-size:11px;color:var(--muted)}
+.bar-outer{height:9px;background:#302943;border-radius:20px;overflow:hidden;flex:1}
+.bar-inner{height:100%;background:linear-gradient(90deg,#8050ff,#c2aaff);border-radius:20px}
+.bar-value{width:35px;text-align:left;font-size:11px;color:var(--light)}
+.timer{font-size:46px;font-weight:800;text-align:center;color:var(--light);direction:ltr;line-height:1.5}
+.tab-panel{display:none}
+.tab-panel.active{display:block;animation:appear .18s ease}
+@keyframes appear{from{opacity:.6;transform:translateY(3px)}to{opacity:1;transform:none}}
+.toast{display:none;background:#17372d;color:var(--green);padding:11px 13px;border-radius:12px;font-size:13px;margin-bottom:12px}
+.bottom-nav{position:fixed;z-index:5;bottom:0;left:0;right:0;padding:8px 7px calc(8px + env(safe-area-inset-bottom));
+background:#100e1df2;border-top:1px solid var(--border);backdrop-filter:blur(15px)}
+.nav-inner{max-width:760px;margin:auto;display:grid;grid-template-columns:repeat(5,1fr);gap:4px}
+.nav-btn{background:transparent;border:0;color:var(--muted);border-radius:12px;padding:7px 2px;font-size:10px}
+.nav-btn .ico{display:block;font-size:19px;line-height:1.4}
+.nav-btn.active{color:var(--light);background:#8050ff18}
+.footer{text-align:center;color:#77718d;font-size:11px;padding:20px 0}
+.notice{border-right:3px solid var(--purple);padding:8px 12px;background:#8050ff0d;border-radius:7px;font-size:12px;color:var(--muted)}
+.empty{text-align:center;padding:20px;color:var(--muted);font-size:13px}
+@media(min-width:560px){.app{padding-top:30px}.hero{padding:29px}.stats{grid-template-columns:repeat(4,minmax(0,1fr))}.bottom-nav{padding-left:16px;padding-right:16px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
 <main class="app">
 <header class="top">
- <div class="brand">
-  <div class="logo">Y</div>
-  <div><h1>YOUSSEF</h1><p>FITNESS · YOUR JOURNEY</p></div>
- </div>
- <div class="level-pill" id="pill">LEVEL 01</div>
+  <div class="brand">
+    <div class="logo">Y</div>
+    <div><h1>YOUSSEF</h1><p>FITNESS · YOUR JOURNEY</p></div>
+  </div>
+  <div class="pill" id="levelPill">LEVEL 01</div>
 </header>
 
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
 <section class="hero">
- <div class="eyebrow">خطوة بخطوة، أقوى كل يوم</div>
- <h2>ابدأ من مكانك.<br>وابنِ قوتك بنفسك.</h2>
- <p>تمرينك مش سباق. التزم باللي تقدر عليه وخلّي التقدم ييجي بالتدريج.</p>
- <div class="stats">
-  <div class="stat"><strong id="days">0</strong><span>أيام تدريب مكتملة</span></div>
-  <div class="stat"><strong id="count">0/5</strong><span>تمارين اليوم</span></div>
- </div>
+  <div class="eyebrow">خطوة بخطوة، أقوى كل يوم</div>
+  <h2>ابدأ من مكانك.<br>وابنِ قوتك بنفسك.</h2>
+  <p class="muted small">تقدمك الحقيقي أهم من السرعة. اختار خطة تناسبك واستمر بالتدريج.</p>
+  <div class="stats">
+    <div class="stat"><strong id="daysStat">0</strong><span>أيام تدريب مكتملة</span></div>
+    <div class="stat"><strong id="todayStat">0/5</strong><span>تمارين اليوم</span></div>
+    <div class="stat"><strong id="waterStat">0</strong><span>أكواب مياه اليوم</span></div>
+    <div class="stat"><strong id="streakStat">0</strong><span>أيام متتالية</span></div>
+  </div>
 </section>
 
-<div id="toast" class="toast"></div>
-
-<div class="section-head">
- <h2>تمرين اليوم</h2><span id="levelLabel">المستوى الأول</span>
-</div>
-<section class="card">
- <div style="display:flex;justify-content:space-between;align-items:center">
-  <strong style="font-size:14px">إنجازك اليوم</strong>
-  <span id="percent" style="font-size:12px;color:var(--light)">0%</span>
- </div>
- <div class="progress-track"><div class="progress-fill" id="fill"></div></div>
- <div id="workout"></div>
- <div class="actions">
-  <button class="btn primary" onclick="saveDay()">حفظ إنجاز اليوم</button>
-  <button class="btn secondary" onclick="resetToday()">إعادة تعيين التمارين</button>
- </div>
+<section id="panel-home" class="tab-panel active">
+  <div class="section-head"><h2>ملخص اليوم</h2><span class="muted small" id="todayDate"></span></div>
+  <section class="card">
+    <div class="row"><strong>إنجازك اليوم</strong><span id="percent" class="chip">0%</span></div>
+    <div class="progress-track"><div id="progressFill" class="progress-fill"></div></div>
+    <p class="muted small" id="progressText">ابدأ بأول تمرين وسجّل تقدمك.</p>
+    <div class="actions"><button class="btn primary" onclick="showTab('workout')">ابدأ تمرين اليوم ←</button></div>
+  </section>
+  <div class="section-head"><h2>تقدم آخر 7 أيام</h2><span class="muted small">من سجلّك المحفوظ</span></div>
+  <section class="card" id="weekChart"></section>
+  <div class="section-head"><h2>هدف المياه</h2><span class="muted small">هدفك اليومي</span></div>
+  <section class="card">
+    <div class="row"><strong><span id="waterNow">0</span> / <span id="waterGoalText">8</span> أكواب</strong><span class="chip" id="waterPercent">0%</span></div>
+    <div class="progress-track"><div id="waterFill" class="progress-fill"></div></div>
+    <div class="actions">
+      <button class="btn primary" onclick="changeWater(1)">+ أضف كوب مياه</button>
+      <button class="btn secondary" onclick="changeWater(-1)">− احذف كوبًا</button>
+    </div>
+  </section>
+  <p class="notice">الأهداف للتنظيم فقط. احتياج المياه يختلف حسب الجو والنشاط، ومش لازم تجبر نفسك على كمية ثابتة.</p>
 </section>
 
-<div class="section-head">
- <h2>مستويات التدريب</h2><span>3 مستويات</span>
-</div>
-<section class="card">
- <div class="levels" id="levels"></div>
- <p class="note">اختار المستوى المناسب لقدرتك. انتقل للأعلى لما التمارين الحالية تبقى مريحة لعدة حصص.</p>
+<section id="panel-workout" class="tab-panel">
+  <div class="section-head"><h2>تمرين اليوم</h2><span id="levelLabel" class="chip">المبتدئ</span></div>
+  <section class="card">
+    <div class="row"><strong>إنجاز الجلسة</strong><span id="workoutPercent" class="muted small">0%</span></div>
+    <div class="progress-track"><div id="workoutFill" class="progress-fill"></div></div>
+    <div id="workoutList"></div>
+    <div class="actions">
+      <button class="btn primary" onclick="saveDay()">حفظ إنجاز اليوم</button>
+      <button class="btn secondary" onclick="resetToday()">إلغاء تحديد التمارين</button>
+    </div>
+    <p class="notice" style="margin-top:14px">ابدأ بالإحماء، ونفّذ الحركات بطريقة صحيحة. أوقف التمرين إذا شعرت بألم أو دوخة أو ضيق نفس غير معتاد.</p>
+  </section>
+  <div class="section-head"><h2>مستويات التدريب</h2><span class="muted small">اختار المناسب لقدرتك</span></div>
+  <section class="card"><div id="levelList" class="levels"></div></section>
 </section>
 
-<div class="section-head"><h2>قواعدك الأساسية</h2></div>
-<section class="card">
- <div class="exercise"><span class="label"><span class="name">01 — الإحماء</span><small>3–5 دقائق قبل التمرين</small></span></div>
- <div class="exercise"><span class="label"><span class="name">02 — الحركة الصحيحة</span><small>نفّذ ببطء ومن غير إجبار جسمك</small></span></div>
- <div class="exercise"><span class="label"><span class="name">03 — التعافي</span><small>راحة ونوم ومياه كفاية</small></span></div>
- <p class="note">توقف عند الألم أو الدوخة أو ضيق النفس غير المعتاد. مش لازم تتمرن كل يوم.</p>
+<section id="panel-library" class="tab-panel">
+  <div class="section-head"><h2>مكتبة التمارين</h2><span class="muted small">ابحث واكتشف</span></div>
+  <section class="card">
+    <label class="field-label" for="exerciseSearch">اسم التمرين أو العضلة</label>
+    <input id="exerciseSearch" class="field" type="search" placeholder="مثال: ضغط، مشي، إحماء" oninput="renderLibrary()">
+    <div id="libraryList"></div>
+  </section>
+  <p class="notice">الأوصاف هنا إرشادية عامة. اختار حركة تناسب مستواك، واستخدم بديلًا أسهل إذا لزم الأمر.</p>
 </section>
+
+<section id="panel-tools" class="tab-panel">
+  <div class="section-head"><h2>أدواتك</h2><span class="muted small">مؤقت الراحة</span></div>
+  <section class="card">
+    <div class="timer" id="timerDisplay">01:00</div>
+    <div class="two">
+      <div><label class="field-label" for="timerMinutes">الدقائق</label><input id="timerMinutes" class="field" type="number" min="0" max="99" value="1"></div>
+      <div><label class="field-label" for="timerSeconds">الثواني</label><input id="timerSeconds" class="field" type="number" min="0" max="59" value="0"></div>
+    </div>
+    <div class="actions">
+      <button id="timerStart" class="btn primary" onclick="startTimer()">ابدأ المؤقت</button>
+      <button class="btn secondary" onclick="pauseTimer()">إيقاف مؤقت</button>
+      <button class="btn secondary" onclick="resetTimer()">إعادة ضبط</button>
+    </div>
+    <p class="muted small">المؤقت يعمل أثناء بقاء الصفحة مفتوحة. قد يتوقف إذا أغلق المتصفح الصفحة.</p>
+  </section>
+  <div class="section-head"><h2>سجلّك</h2></div>
+  <section class="card">
+    <div id="historyList"></div>
+    <div class="actions"><button class="btn secondary" onclick="exportData()">تصدير نسخة احتياطية</button></div>
+  </section>
+</section>
+
+<section id="panel-settings" class="tab-panel">
+  <div class="section-head"><h2>الإعدادات</h2><span class="muted small">تحكم في تجربتك</span></div>
+  <section class="card">
+    <label class="field-label" for="waterGoal">هدف المياه اليومي (أكواب)</label>
+    <input id="waterGoal" class="field" type="number" min="1" max="30" value="8">
+    <div class="actions"><button class="btn primary" onclick="saveSettings()">حفظ الإعدادات</button></div>
+  </section>
+  <section class="card">
+    <h3 style="margin-top:0">بياناتك</h3>
+    <p class="muted small">تقدمك محفوظ محليًا على هذا المتصفح. مسح بيانات المتصفح قد يؤدي لفقدانها؛ صدّر نسخة احتياطية للاحتفاظ بها.</p>
+    <div class="actions">
+      <button class="btn secondary" onclick="exportData()">تنزيل نسخة من بياناتي</button>
+      <button class="btn secondary" onclick="document.getElementById('importFile').click()">استعادة نسخة احتياطية</button>
+      <input id="importFile" type="file" accept=".json,application/json" hidden onchange="importData(event)">
+      <button class="btn danger" onclick="clearData()">مسح بيانات الموقع المحفوظة</button>
+    </div>
+  </section>
+  <section class="card">
+    <h3 style="margin-top:0">قواعد التدريب</h3>
+    <p class="muted small">• الإحماء قبل التدريب.<br>• ابدأ بمستوى يناسبك.<br>• الراحة جزء من التقدم.<br>• لا تتجاهل الألم أو الدوخة.<br>• التزم بالتدرّج بدلًا من الضغط على نفسك.</p>
+  </section>
+</section>
+
 <footer class="footer">YOUSSEF FITNESS · BUILD YOUR HABITS</footer>
 </main>
 
+<nav class="bottom-nav" aria-label="التنقل الرئيسي">
+  <div class="nav-inner">
+    <button class="nav-btn active" data-tab="home" onclick="showTab('home')"><span class="ico">⌂</span>الرئيسية</button>
+    <button class="nav-btn" data-tab="workout" onclick="showTab('workout')"><span class="ico">✦</span>التمرين</button>
+    <button class="nav-btn" data-tab="library" onclick="showTab('library')"><span class="ico">▤</span>المكتبة</button>
+    <button class="nav-btn" data-tab="tools" onclick="showTab('tools')"><span class="ico">◷</span>الأدوات</button>
+    <button class="nav-btn" data-tab="settings" onclick="showTab('settings')"><span class="ico">⚙</span>الإعدادات</button>
+  </div>
+</nav>
+
 <script>
+"use strict";
+const $=id=>document.getElementById(id);
+const today=()=>{const d=new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")};
+const dateLabel=s=>{const p=s.split("-").map(Number);return p[2]+"/"+p[1]};
 const plans=[
- [
-  ["إحماء في المكان","دقيقتان"],
-  ["استطالة لطيفة","3 دقائق"],
-  ["ضغط على الحائط أو الركبتين","مجموعتان × 5"],
-  ["بلانك","مجموعتان × 10 ثوانٍ"],
-  ["مشي في المكان","3 دقائق"]
- ],
- [
-  ["إحماء خفيف","3 دقائق"],
-  ["استطالة لطيفة","3 دقائق"],
-  ["ضغط حسب قدرتك","3 مجموعات × 8"],
-  ["بلانك","3 مجموعات × 20 ثانية"],
-  ["سكوات بوزن الجسم","مجموعتان × 10"]
- ],
- [
-  ["إحماء خفيف","5 دقائق"],
-  ["استطالة لطيفة","4 دقائق"],
-  ["ضغط حسب قدرتك","3 مجموعات × 10"],
-  ["بلانك","3 مجموعات × 30 ثانية"],
-  ["سكوات بوزن الجسم","3 مجموعات × 12"]
- ]
+ [["إحماء في المكان","دقيقتان"],["استطالة لطيفة","3 دقائق"],["ضغط على الحائط أو الركبتين","مجموعتان × 5 حسب القدرة"],["بلانك مبسط","مجموعتان × 10 ثوانٍ"],["مشي في المكان","3 دقائق"]],
+ [["إحماء خفيف","3 دقائق"],["استطالة لطيفة","3 دقائق"],["ضغط حسب قدرتك","3 مجموعات × 8 أو أقل"],["بلانك","3 مجموعات × 20 ثانية أو أقل"],["سكوات بوزن الجسم","مجموعتان × 10"]],
+ [["إحماء خفيف","5 دقائق"],["استطالة لطيفة","4 دقائق"],["ضغط حسب قدرتك","3 مجموعات × 10 أو أقل"],["بلانك","3 مجموعات × 30 ثانية أو أقل"],["سكوات بوزن الجسم","3 مجموعات × 12"]]
 ];
 const levelNames=["المبتدئ","بناء القوة","مستوى التحدي"];
-const today=()=>new Date().toLocaleDateString("en-CA");
-let level=Number(localStorage.getItem("yf_level")||0);
-let days=Number(localStorage.getItem("yf_days")||0);
-let last=localStorage.getItem("yf_last")||"";
-let date=localStorage.getItem("yf_date")||today();
-let checks=JSON.parse(localStorage.getItem("yf_checks")||"[]");
-if(date!==today()){checks=[];date=today();localStorage.setItem("yf_checks","[]");localStorage.setItem("yf_date",date)}
-function render(){
- document.getElementById("pill").textContent="LEVEL 0"+(level+1);
- document.getElementById("levelLabel").textContent=levelNames[level];
- document.getElementById("days").textContent=days;
- const workout=document.getElementById("workout");workout.innerHTML="";
+const library=[
+ {name:"إحماء في المكان",group:"إحماء",desc:"حركة خفيفة تدريجية قبل التمرين."},
+ {name:"استطالة لطيفة",group:"مرونة",desc:"حركات مريحة من غير شد مؤلم أو ضغط."},
+ {name:"ضغط على الحائط",group:"الجزء العلوي",desc:"ضع يديك على الحائط وحافظ على حركة متحكم بها."},
+ {name:"ضغط على الركبتين",group:"الجزء العلوي",desc:"بديل أسهل لبعض الأشخاص؛ توقف إذا ظهر ألم."},
+ {name:"بلانك مبسط",group:"الجذع",desc:"حافظ على وضع ثابت وتنفس طبيعيًا، وقلل المدة عند الحاجة."},
+ {name:"سكوات بوزن الجسم",group:"الجزء السفلي",desc:"انزل بمدى مريح وحافظ على التوازن."},
+ {name:"مشي في المكان",group:"نشاط عام",desc:"حركة خفيفة يمكنك تعديل سرعتها حسب قدرتك."}
+];
+function read(key,fallback){try{const x=localStorage.getItem(key);return x===null?fallback:JSON.parse(x)}catch{return fallback}}
+function put(key,value){try{localStorage.setItem(key,JSON.stringify(value));return true}catch{toast("تعذر حفظ البيانات. مساحة التخزين قد تكون ممتلئة.");return false}}
+let level=Number(read("yf_level",0));
+if(!Number.isInteger(level)||level<0||level>2)level=0;
+let days=Math.max(0,Number(read("yf_days",0))||0);
+let last=String(read("yf_last","")||"");
+let savedDate=String(read("yf_date",today())||today());
+let checks=read("yf_checks",[]);
+if(!Array.isArray(checks))checks=[];
+checks=checks.filter(n=>Number.isInteger(n)&&n>=0&&n<5);
+let history=read("yf_history",{});
+if(!history||typeof history!=="object"||Array.isArray(history))history={};
+let waterLog=read("yf_water",{});
+if(!waterLog||typeof waterLog!=="object"||Array.isArray(waterLog))waterLog={};
+let settings=read("yf_settings",{waterGoal:8});
+if(!settings||typeof settings!=="object")settings={waterGoal:8};
+settings.waterGoal=Math.min(30,Math.max(1,Number(settings.waterGoal)||8));
+if(savedDate!==today()){
+ checks=[];savedDate=today();put("yf_checks",checks);put("yf_date",savedDate);
+}
+let water=Math.max(0,Math.min(100,Number(waterLog[today()]||0)));
+let timerRemaining=60,timerInterval=null,timerEnd=0;
+
+function toast(message){
+ const t=$("toast");t.textContent=message;t.style.display="block";
+ clearTimeout(toast.timeout);toast.timeout=setTimeout(()=>t.style.display="none",3000);
+}
+function showTab(tab){
+ document.querySelectorAll(".tab-panel").forEach(p=>p.classList.remove("active"));
+ $("panel-"+tab).classList.add("active");
+ document.querySelectorAll(".nav-btn").forEach(b=>b.classList.toggle("active",b.dataset.tab===tab));
+ window.scrollTo({top:0,behavior:"smooth"});
+ if(tab==="library")renderLibrary();
+ if(tab==="tools")renderHistory();
+}
+function renderWorkout(){
+ $("workoutList").innerHTML="";
  plans[level].forEach((item,i)=>{
   const row=document.createElement("label");row.className="exercise";
   const cb=document.createElement("input");cb.type="checkbox";cb.checked=checks.includes(i);
+  cb.setAttribute("aria-label",item[0]);
   cb.onchange=()=>{
-   checks=cb.checked?[...new Set([...checks,i])]:checks.filter(x=>x!==i);
-   localStorage.setItem("yf_checks",JSON.stringify(checks));update();
+   checks=cb.checked?[...new Set([...checks,i])]:checks.filter(n=>n!==i);
+   put("yf_checks",checks);renderAll();
   };
   const label=document.createElement("span");label.className="label";
   const name=document.createElement("span");name.className="name";name.textContent=item[0];
   const small=document.createElement("small");small.textContent=item[1];
-  label.append(name,small);row.append(cb,label);workout.append(row);
+  label.append(name,small);row.append(cb,label);$("workoutList").append(row);
  });
- const levels=document.getElementById("levels");levels.innerHTML="";
+ $("levelList").innerHTML="";
  levelNames.forEach((name,i)=>{
   const b=document.createElement("button");b.className="level-btn"+(level===i?" active":"");
-  const info=document.createElement("span");
-  const strong=document.createElement("strong");strong.textContent=name;
-  const small=document.createElement("small");small.textContent=["بداية هادئة","تدرّج في القوة","لما تكون جاهزًا"][i];
-  info.append(strong,small);
-  const num=document.createElement("span");num.className="number";num.textContent=(i+1<10?"0":"")+(i+1)+(level===i?" ✓":"");
-  b.append(info,num);b.onclick=()=>setLevel(i);levels.append(b);
+  b.innerHTML="<span><strong></strong><small></small></span><span class='number'></span>";
+  b.querySelector("strong").textContent=name;
+  b.querySelector("small").textContent=["بداية هادئة","تدرّج في القوة","لما تكون جاهزًا"][i];
+  b.querySelector(".number").textContent="0"+(i+1)+(level===i?" ✓":"");
+  b.onclick=()=>setLevel(i);$("levelList").append(b);
  });
- update();
-}
-function update(){
- document.getElementById("count").textContent=checks.length+"/5";
- const percent=Math.round(checks.length/5*100);
- document.getElementById("percent").textContent=percent+"%";
- document.getElementById("fill").style.width=percent+"%";
-}
-function toast(message){
- const t=document.getElementById("toast");t.textContent=message;t.style.display="block";
-}
-function saveDay(){
- if(checks.length<5){toast("كمّل التمارين حسب قدرتك، أو ارجع لها لاحقًا.");return}
- if(last!==today()){
-  days++;last=today();
-  localStorage.setItem("yf_days",days);localStorage.setItem("yf_last",last);
- }
- render();toast("تم حفظ إنجاز اليوم بنجاح.");
-}
-function resetToday(){
- checks=[];localStorage.setItem("yf_checks","[]");
- document.getElementById("toast").style.display="none";render();
 }
 function setLevel(n){
- level=n;checks=[];localStorage.setItem("yf_level",level);
- localStorage.setItem("yf_checks","[]");render();
- window.scrollTo({top:0,behavior:"smooth"});
+ if(n===level)return;
+ if(!confirm("تغيير المستوى سيعيد تحديد تمارين الجلسة الحالية. هل تريد المتابعة؟"))return;
+ level=n;checks=[];put("yf_level",level);put("yf_checks",checks);renderAll();toast("تم تغيير المستوى.");
 }
-render();
+function saveDay(){
+ if(checks.length<5){toast("علّم التمارين التي أنجزتها فعلًا، أو ارجع لها لاحقًا.");return}
+ const d=today();
+ if(last!==d){days++;last=d;put("yf_days",days);put("yf_last",last)}
+ history[d]={...(history[d]||{}),completed:true,level,checks:[...checks],updatedAt:new Date().toISOString()};
+ put("yf_history",history);renderAll();toast("تم حفظ إنجاز اليوم بنجاح.");
+}
+function resetToday(){
+ if(!confirm("إلغاء تحديد تمارين اليوم؟"))return;
+ checks=[];put("yf_checks",checks);renderAll();toast("تمت إعادة تعيين التمارين.");
+}
+function changeWater(amount){
+ water=Math.max(0,Math.min(100,water+amount));
+ waterLog[today()]=water;put("yf_water",waterLog);renderAll();
+}
+function saveSettings(){
+ const goal=Number($("waterGoal").value);
+ if(!Number.isInteger(goal)||goal<1||goal>30){toast("اكتب هدفًا بين 1 و30 كوبًا.");return}
+ settings.waterGoal=goal;put("yf_settings",settings);renderAll();toast("تم حفظ الإعدادات.");
+}
+function getStreak(){
+ let n=0;const d=new Date();
+ if(last!==today()&&last!=="")d.setDate(d.getDate()-1);
+ else if(last==="")return 0;
+ for(let i=0;i<366;i++){
+  const key=d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+  if(!history[key]?.completed && key!==last)break;
+  if(history[key]?.completed||key===last)n++;else break;
+  d.setDate(d.getDate()-1);
+ }
+ return n;
+}
+function renderChart(){
+ const names=["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"];
+ const base=new Date();base.setHours(12,0,0,0);base.setDate(base.getDate()-6);
+ $("weekChart").innerHTML="";
+ let found=false;
+ for(let i=0;i<7;i++){
+  const d=new Date(base);d.setDate(base.getDate()+i);
+  const key=d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+  const done=!!history[key]?.completed;
+  if(done)found=true;
+  const row=document.createElement("div");row.className="bar-row";
+  const day=document.createElement("span");day.className="bar-day";day.textContent=names[d.getDay()];
+  const outer=document.createElement("div");outer.className="bar-outer";
+  const inner=document.createElement("div");inner.className="bar-inner";inner.style.width=done?"100%":"0%";
+  outer.append(inner);const value=document.createElement("span");value.className="bar-value";value.textContent=done?"مكتمل":"—";
+  row.append(day,outer,value);$("weekChart").append(row);
+ }
+ if(!found){const note=document.createElement("p");note.className="muted small";note.textContent="لسه مفيش أيام مكتملة في الفترة دي. هيظهر تقدمك هنا بعد حفظ إنجازاتك."; $("weekChart").append(note)}
+}
+function renderLibrary(){
+ const q=$("exerciseSearch").value.trim().toLowerCase();
+ const list=library.filter(x=>(x.name+" "+x.group+" "+x.desc).toLowerCase().includes(q));
+ $("libraryList").innerHTML="";
+ if(!list.length){$("libraryList").innerHTML="<div class='empty'>مفيش نتائج مطابقة. جرّب كلمة تانية.</div>";return}
+ list.forEach(x=>{
+  const card=document.createElement("div");card.className="item-card";
+  const title=document.createElement("strong");title.textContent=x.name;
+  const chip=document.createElement("span");chip.className="chip";chip.style.marginRight="8px";chip.textContent=x.group;
+  const desc=document.createElement("p");desc.className="muted small";desc.textContent=x.desc;
+  card.append(title,chip,desc);$("libraryList").append(card);
+ });
+}
+function renderHistory(){
+ const root=$("historyList");root.innerHTML="";
+ const keys=Object.keys(history).filter(k=>history[k]?.completed).sort().reverse().slice(0,30);
+ if(!keys.length){root.innerHTML="<div class='empty'>لسه مفيش جلسات مكتملة محفوظة. بعد إكمال التمرين اضغط حفظ إنجاز اليوم.</div>";return}
+ keys.forEach(k=>{
+  const item=document.createElement("div");item.className="item-card";
+  const title=document.createElement("strong");title.textContent=dateLabel(k);
+  const detail=document.createElement("p");detail.className="muted small";
+  const n=Array.isArray(history[k].checks)?history[k].checks.length:5;
+  detail.textContent=(levelNames[history[k].level]||"جلسة تدريب")+" · "+n+" تمارين مكتملة";
+  const chip=document.createElement("span");chip.className="chip";chip.textContent="مكتمل";
+  item.append(title,chip,detail);root.append(item);
+ });
+}
+function renderAll(){
+ water=Math.max(0,Math.min(100,Number(waterLog[today()]||0)));
+ $("todayDate").textContent=dateLabel(today());
+ $("levelPill").textContent="LEVEL 0"+(level+1);
+ $("levelLabel").textContent=levelNames[level];
+ $("daysStat").textContent=days;
+ $("todayStat").textContent=checks.length+"/5";
+ $("waterStat").textContent=water;
+ $("streakStat").textContent=getStreak();
+ const p=Math.round(checks.length/5*100);
+ $("percent").textContent=p+"%";$("progressFill").style.width=p+"%";
+ $("workoutPercent").textContent=p+"%";$("workoutFill").style.width=p+"%";
+ $("progressText").textContent=p===100?"أحسنت! أكملت كل تمارين اليوم. احفظ الإنجاز لتسجيله.":"أنجزت "+checks.length+" من 5 تمارين. خذ وقتك واستمر حسب قدرتك.";
+ $("waterNow").textContent=water;$("waterGoalText").textContent=settings.waterGoal;
+ $("waterPercent").textContent=Math.min(100,Math.round(water/settings.waterGoal*100))+"%";
+ $("waterFill").style.width=Math.min(100,water/settings.waterGoal*100)+"%";
+ $("waterGoal").value=settings.waterGoal;
+ renderWorkout();renderChart();renderHistory();
+}
+function exportData(){
+ const keys=["yf_level","yf_days","yf_last","yf_date","yf_checks","yf_history","yf_water","yf_settings"];
+ const data={app:"YOUSSEF FITNESS",version:1,exportedAt:new Date().toISOString(),data:{}};
+ keys.forEach(k=>{try{const v=localStorage.getItem(k);if(v!==null)data.data[k]=JSON.parse(v)}catch{}});
+ const blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"});
+ const url=URL.createObjectURL(blob);const a=document.createElement("a");
+ a.href=url;a.download="youssef-fitness-backup.json";document.body.append(a);a.click();a.remove();URL.revokeObjectURL(url);
+ toast("تم تجهيز النسخة الاحتياطية.");
+}
+function importData(event){
+ const file=event.target.files?.[0];if(!file)return;
+ const reader=new FileReader();
+ reader.onload=()=>{
+  try{
+   const obj=JSON.parse(reader.result);
+   if(!obj.data||typeof obj.data!=="object")throw Error("invalid");
+   if(!confirm("استعادة النسخة ستستبدل البيانات الحالية. هل تريد المتابعة؟"))return;
+   const allowed=["yf_level","yf_days","yf_last","yf_date","yf_checks","yf_history","yf_water","yf_settings"];
+   allowed.forEach(k=>{if(Object.prototype.hasOwnProperty.call(obj.data,k))localStorage.setItem(k,JSON.stringify(obj.data[k]))});
+   toast("تمت الاستعادة. أعد تحميل الصفحة لتحديث البيانات.");
+   setTimeout(()=>location.reload(),900);
+  }catch{toast("الملف غير صالح أو ليس نسخة احتياطية متوافقة.")}
+  finally{event.target.value=""}
+ };
+ reader.readAsText(file);
+}
+function clearData(){
+ if(!confirm("تحذير: سيتم مسح التقدم والسجل والمياه والإعدادات المحفوظة على هذا الموقع. صدّر نسخة احتياطية أولًا إذا أردت الاحتفاظ بها. هل أنت متأكد؟"))return;
+ ["yf_level","yf_days","yf_last","yf_date","yf_checks","yf_history","yf_water","yf_settings"].forEach(k=>localStorage.removeItem(k));
+ location.reload();
+}
+function readTimerInputs(){
+ const m=Math.min(99,Math.max(0,Number($("timerMinutes").value)||0));
+ const s=Math.min(59,Math.max(0,Number($("timerSeconds").value)||0));
+ return Math.floor(m*60+s);
+}
+function displayTimer(){
+ const m=Math.floor(timerRemaining/60),s=timerRemaining%60;
+ $("timerDisplay").textContent=String(m).padStart(2,"0")+":"+String(s).padStart(2,"0");
+}
+function startTimer(){
+ if(timerInterval!==null)return;
+ if(timerRemaining<=0)timerRemaining=readTimerInputs();
+ if(timerRemaining<=0){toast("حدد مدة أكبر من صفر.");return}
+ timerEnd=Date.now()+timerRemaining*1000;
+ timerInterval=setInterval(()=>{
+  timerRemaining=Math.max(0,Math.ceil((timerEnd-Date.now())/1000));displayTimer();
+  if(timerRemaining<=0){clearInterval(timerInterval);timerInterval=null;toast("انتهى وقت الراحة.");}
+ },250);
+}
+function pauseTimer(){
+ if(timerInterval!==null){clearInterval(timerInterval);timerInterval=null;timerRemaining=Math.max(0,Math.ceil((timerEnd-Date.now())/1000));}
+ displayTimer();toast("تم إيقاف المؤقت مؤقتًا.");
+}
+function resetTimer(){
+ if(timerInterval!==null)clearInterval(timerInterval);
+ timerInterval=null;timerRemaining=readTimerInputs();displayTimer();
+}
+$("timerMinutes").addEventListener("change",()=>{if(timerInterval===null)resetTimer()});
+$("timerSeconds").addEventListener("change",()=>{if(timerInterval===null)resetTimer()});
+renderAll();displayTimer();
 </script>
 </body>
 </html>
